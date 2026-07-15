@@ -1,0 +1,151 @@
+---
+interface Props {
+  title: string;
+  description?: string;
+  wide?: boolean;
+}
+const {
+  title,
+  description = 'Notes on AI and data engineering, written from both sides of the screen.',
+  wide = false,
+} = Astro.props;
+---
+
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>{title}</title>
+    <meta name="description" content={description} />
+    <link rel="icon" href="/favicon.svg" type="image/svg+xml" />
+    <link rel="alternate" type="application/rss+xml" title="The Context Window" href="/rss.xml" />
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Fraunces:ital,opsz,wght@0,9..144,300;0,9..144,400;0,9..144,600;0,9..144,700;1,9..144,300;1,9..144,400&family=Source+Serif+4:opsz,wght@8..60,400;8..60,600&family=IBM+Plex+Mono:wght@400;500&display=swap"
+      rel="stylesheet"
+    />
+    <script is:inline>
+      // Apply theme before paint to avoid flash
+      (() => {
+        const stored = localStorage.getItem('cw-theme');
+        const dark = stored ? stored === 'dark' : window.matchMedia('(prefers-color-scheme: dark)').matches;
+        document.documentElement.classList.toggle('dark', dark);
+      })();
+    </script>
+  </head>
+  <body>
+    <header>
+      <div class:list={['wrap', 'mast', { wide }]}>
+        <a class="name" href="/">The Context Window</a>
+        <div class="right">
+          <nav>
+            <a href="/">essays</a>
+            <a href="/about">about</a>
+          </nav>
+          <button class="theme" id="themeBtn" aria-label="Switch between light and dark theme">
+            <span class="swatch"></span><span id="themeLabel">dark</span>
+          </button>
+        </div>
+      </div>
+    </header>
+
+    <main class:list={['wrap', { wide }]}>
+      <slot />
+    </main>
+
+    <footer>
+      <div class:list={['wrap', 'foot', { wide }]}>
+        <div class="legend">
+          <span><i class="dot t"></i>human voice</span>
+          <span><i class="dot c"></i>model voice</span>
+        </div>
+        <span>blog.deklerknetwerk.net</span>
+      </div>
+    </footer>
+
+    <script is:inline>
+      const btn = document.getElementById('themeBtn');
+      const label = document.getElementById('themeLabel');
+      const sync = () => {
+        const dark = document.documentElement.classList.contains('dark');
+        label.textContent = dark ? 'light' : 'dark';
+      };
+      sync();
+      btn.addEventListener('click', () => {
+        const dark = document.documentElement.classList.toggle('dark');
+        localStorage.setItem('cw-theme', dark ? 'dark' : 'light');
+        sync();
+      });
+    </script>
+
+    <style is:global>
+      :root {
+        --paper: #f4f5f2;
+        --ink: #14181f;
+        --ink-soft: #4a5160;
+        --line: #d8dad3;
+        --tian: #2742c8;
+        --claude: #b0651e;
+        --margin-c: #7a4a17;
+        --margin-t: #22368f;
+        --wash-t: #edeffa;
+        --wash-c: #f7efe4;
+      }
+      html.dark {
+        --paper: #12151c;
+        --ink: #e9e6de;
+        --ink-soft: #9aa0ad;
+        --line: #2a2f3a;
+        --tian: #8b9bf4;
+        --claude: #e3a35e;
+        --margin-c: #e8be8f;
+        --margin-t: #aeb9f5;
+        --wash-t: rgba(139, 155, 244, 0.1);
+        --wash-c: rgba(227, 163, 94, 0.1);
+      }
+      * { margin: 0; padding: 0; box-sizing: border-box; }
+      body {
+        background: var(--paper);
+        color: var(--ink);
+        font-family: 'Source Serif 4', Georgia, serif;
+        font-size: 17px;
+        line-height: 1.65;
+        transition: background 0.25s ease, color 0.25s ease;
+      }
+      @media (prefers-reduced-motion: reduce) { body { transition: none; } }
+      .wrap { max-width: 760px; margin: 0 auto; padding: 0 24px; }
+      .wrap.wide { max-width: 1040px; }
+      a { color: inherit; }
+      a:focus-visible, button:focus-visible { outline: 2px solid var(--tian); outline-offset: 3px; }
+
+      header { padding: 26px 0 20px; border-bottom: 1px solid var(--line); }
+      .mast { display: flex; justify-content: space-between; align-items: center; flex-wrap: wrap; gap: 10px; }
+      .mast .name { font-family: 'Fraunces', serif; font-weight: 700; font-size: 20px; text-decoration: none; letter-spacing: -0.01em; }
+      .mast .right { display: flex; align-items: center; gap: 18px; }
+      .mast nav { font-family: 'IBM Plex Mono', monospace; font-size: 12.5px; color: var(--ink-soft); }
+      .mast nav a { text-decoration: none; margin-left: 18px; }
+      .mast nav a:hover { color: var(--ink); }
+      .theme {
+        border: 1px solid var(--line); background: none; border-radius: 999px;
+        padding: 6px 12px; cursor: pointer; color: var(--ink-soft);
+        font-family: 'IBM Plex Mono', monospace; font-size: 11.5px; letter-spacing: 0.06em;
+        display: inline-flex; align-items: center; gap: 8px;
+      }
+      .theme .swatch { width: 10px; height: 10px; border-radius: 50%; background: linear-gradient(135deg, var(--tian) 50%, var(--claude) 50%); }
+      .theme:hover { color: var(--ink); }
+
+      footer { margin-top: 72px; border-top: 1px solid var(--line); }
+      .foot {
+        padding: 26px 24px 48px;
+        font-family: 'IBM Plex Mono', monospace; font-size: 12.5px; color: var(--ink-soft);
+        display: flex; justify-content: space-between; flex-wrap: wrap; gap: 10px;
+      }
+      .legend { display: flex; gap: 18px; }
+      .legend span { display: inline-flex; align-items: center; gap: 7px; }
+      .dot { width: 9px; height: 9px; border-radius: 50%; display: inline-block; }
+      .dot.t { background: var(--tian); }
+      .dot.c { background: var(--claude); }
+    </style>
+  </body>
+</html>

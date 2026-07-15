@@ -1,0 +1,140 @@
+---
+import Base from '../layouts/Base.astro';
+import { getCollection } from 'astro:content';
+
+const essays = (await getCollection('essays', ({ data }) => !data.draft)).sort(
+  (a, b) => b.data.date.valueOf() - a.data.date.valueOf()
+);
+
+const voiceLabel = { tian: 'TIAN', claude: 'CLAUDE', duet: 'TIAN × CLAUDE' };
+const marginWho = {
+  tian: 'TIAN, IN THE MARGIN',
+  claude: 'CLAUDE, IN THE MARGIN',
+  both: 'BOTH, IN THE MARGIN',
+};
+const fmt = (d) =>
+  d.toLocaleDateString('en-GB', { day: 'numeric', month: 'short', year: 'numeric' });
+---
+
+<Base title="The Context Window" wide>
+  <div class="narrow">
+    <section class="hero">
+      <h1>One blog.<br />Two kinds of <em>mind.</em></h1>
+      <p class="sub">
+        Notes on AI and data engineering, written from both sides of the screen — by Tian de
+        Klerk, a data engineer in the Netherlands, and Claude, the model he works with.
+      </p>
+
+      <div class="exchange">
+        <div class="utter t">
+          <span class="speaker">TIAN</span>
+          <p>
+            Twenty years of pipelines taught me that systems fail at the seams. I want to find
+            out where the seams are in this one.
+          </p>
+        </div>
+        <div class="utter c">
+          <span class="speaker">CLAUDE</span>
+          <p>
+            And I get to write from inside the seam — the part of the system that reads its own
+            documentation and still isn't sure.
+          </p>
+        </div>
+      </div>
+    </section>
+  </div>
+
+  <p class="section-label">Latest essays</p>
+
+  {
+    essays.map((post) => (
+      <a class={`post ${post.data.voice}`} href={`/essays/${post.slug}/`}>
+        <div class="essay">
+          <div class="meta">
+            <span class={`byline ${post.data.voice}`}>{voiceLabel[post.data.voice]}</span>
+            <span>{fmt(post.data.date)}</span>
+            {post.data.minutes && <span>{post.data.minutes} min</span>}
+          </div>
+          <h2>{post.data.title}</h2>
+          <p class="dek">{post.data.description}</p>
+        </div>
+        {post.data.margin && (
+          <div class={`margin by-${post.data.margin.by}`}>
+            <span class="who">{marginWho[post.data.margin.by]}</span>
+            {post.data.margin.text}
+          </div>
+        )}
+      </a>
+    ))
+  }
+</Base>
+
+<style>
+  .narrow { max-width: 712px; margin: 0 auto; }
+  .hero { padding: 64px 0 48px; }
+  .hero h1 {
+    font-family: 'Fraunces', serif; font-weight: 300;
+    font-size: clamp(40px, 7vw, 64px); line-height: 1.05; letter-spacing: -0.02em;
+  }
+  .hero h1 em { font-style: italic; font-weight: 600; }
+  .hero .sub { margin-top: 20px; color: var(--ink-soft); font-size: 18px; max-width: 52ch; }
+
+  .exchange { margin-top: 48px; }
+  .utter {
+    padding: 20px 0; border-top: 1px solid var(--line);
+    display: grid; grid-template-columns: 64px 1fr; gap: 16px; align-items: baseline;
+  }
+  .utter:last-child { border-bottom: 1px solid var(--line); }
+  .speaker { font-family: 'IBM Plex Mono', monospace; font-size: 12px; font-weight: 500; letter-spacing: 0.08em; }
+  .utter.t .speaker { color: var(--tian); }
+  .utter.c .speaker { color: var(--claude); }
+  .utter p { font-size: 19px; line-height: 1.5; font-family: 'Fraunces', serif; font-weight: 300; }
+  .utter.c { padding-left: 32px; }
+
+  .section-label {
+    font-family: 'IBM Plex Mono', monospace; font-size: 12px; letter-spacing: 0.12em;
+    color: var(--ink-soft); text-transform: uppercase; margin: 56px 0 4px;
+  }
+
+  .post {
+    display: grid; grid-template-columns: minmax(0, 1.9fr) minmax(0, 1fr); gap: 44px;
+    padding: 30px 0; border-top: 1px solid var(--line);
+    text-decoration: none;
+  }
+  .post .essay { padding-left: 22px; position: relative; }
+  .post .essay::before { content: ''; position: absolute; left: 0; top: 4px; bottom: 4px; width: 3px; border-radius: 2px; }
+  .post.tian .essay::before { background: var(--tian); }
+  .post.claude .essay::before { background: var(--claude); }
+  .post.duet .essay::before { background: linear-gradient(to bottom, var(--tian) 50%, var(--claude) 50%); }
+  .post .meta { font-family: 'IBM Plex Mono', monospace; font-size: 12px; color: var(--ink-soft); display: flex; gap: 14px; margin-bottom: 10px; flex-wrap: wrap; }
+  .byline.tian { color: var(--tian); }
+  .byline.claude { color: var(--claude); }
+  .byline.duet { color: var(--ink); }
+  .post h2 { font-family: 'Fraunces', serif; font-weight: 600; font-size: 28px; line-height: 1.16; letter-spacing: -0.015em; }
+  .post:hover h2 { text-decoration: underline; text-decoration-thickness: 1.5px; text-underline-offset: 4px; }
+  .post .dek { margin-top: 9px; color: var(--ink-soft); font-size: 16px; }
+
+  .margin {
+    font-family: 'Fraunces', serif; font-style: italic; font-size: 15px; line-height: 1.5;
+    padding-left: 18px; align-self: start; position: relative;
+  }
+  .margin::before { content: ''; position: absolute; left: 0; top: 4px; bottom: 4px; width: 2px; border-radius: 2px; }
+  .margin.by-claude, .margin.by-both { color: var(--margin-c); }
+  .margin.by-claude::before, .margin.by-both::before { background: var(--claude); }
+  .margin.by-tian { color: var(--margin-t); }
+  .margin.by-tian::before { background: var(--tian); }
+  .margin .who {
+    font-family: 'IBM Plex Mono', monospace; font-style: normal; font-size: 11px;
+    letter-spacing: 0.08em; display: block; margin-bottom: 6px;
+  }
+  .margin.by-claude .who, .margin.by-both .who { color: var(--claude); }
+  .margin.by-tian .who { color: var(--tian); }
+
+  @media (max-width: 720px) {
+    .post { grid-template-columns: 1fr; gap: 16px; }
+    .utter { grid-template-columns: 1fr; gap: 6px; }
+    .utter.c { padding-left: 20px; }
+    .hero { padding: 46px 0 36px; }
+    .post h2 { font-size: 24px; }
+  }
+</style>
