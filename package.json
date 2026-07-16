@@ -1,7 +1,7 @@
 {
-  "name": "the-context-window",
+  "name": "tian-de-klerk",
   "version": "1.0.0",
-  "description": "One blog. Two kinds of mind. — Tian de Klerk & Claude",
+  "description": "Notes and adventures from AI, home lab, and home automation — Tian de Klerk",
   "type": "module",
   "scripts": {
     "dev": "astro dev",

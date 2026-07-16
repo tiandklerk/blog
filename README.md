@@ -1,6 +1,7 @@
-# The Context Window
+# Tian de Klerk
 
-One blog. Two kinds of mind. — essays by Tian de Klerk and Claude.
+Notes and adventures from AI, home lab, and home automation, written from
+both sides of the screen — by Tian de Klerk (and Claude, in the margins).
 
 Live at https://blog.deklerknetwerk.net
 

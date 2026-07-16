@@ -6,7 +6,7 @@ interface Props {
 }
 const {
   title,
-  description = 'Notes on AI and data engineering, written from both sides of the screen.',
+  description = 'Notes and adventures from AI, home lab, and home automation, written from both sides of the screen — by Tian de Klerk.',
   wide = false,
 } = Astro.props;
 ---
@@ -19,7 +19,7 @@ const {
     <title>{title}</title>
     <meta name="description" content={description} />
     <link rel="icon" href="/favicon.svg" type="image/svg+xml" />
-    <link rel="alternate" type="application/rss+xml" title="The Context Window" href="/rss.xml" />
+    <link rel="alternate" type="application/rss+xml" title="Tian de Klerk" href="/rss.xml" />
     <link rel="preconnect" href="https://fonts.googleapis.com" />
     <link
       href="https://fonts.googleapis.com/css2?family=Fraunces:ital,opsz,wght@0,9..144,300;0,9..144,400;0,9..144,600;0,9..144,700;1,9..144,300;1,9..144,400&family=Source+Serif+4:opsz,wght@8..60,400;8..60,600&family=IBM+Plex+Mono:wght@400;500&display=swap"
@@ -37,7 +37,7 @@ const {
   <body>
     <header>
       <div class:list={['wrap', 'mast', { wide }]}>
-        <a class="name" href="/">The Context Window</a>
+        <a class="name" href="/">Tian de Klerk</a>
         <div class="right">
           <nav>
             <a href="/">essays</a>
