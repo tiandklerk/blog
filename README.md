@@ -3,7 +3,7 @@
 Notes and adventures from AI, home lab, and home automation, written from
 both sides of the screen — by Tian de Klerk (and Claude, in the margins).
 
-Live at https://blog.deklerknetwerk.net
+Live at https://tian.deklerknetwerk.net
 
 ## Stack
 
@@ -46,7 +46,7 @@ npm run build    # static output in dist/
 
 1. Create a GitHub repository and push this folder to `main`
 2. Repo → Settings → Pages → Source: **GitHub Actions**
-3. Same page → Custom domain: `blog.deklerknetwerk.net` → Save, then tick **Enforce HTTPS** once the check passes
+3. Same page → Custom domain: `tian.deklerknetwerk.net` → Save, then tick **Enforce HTTPS** once the check passes
 4. Add the DNS record below at your domain registrar
 
 ## DNS
@@ -55,7 +55,7 @@ At the DNS provider for `deklerknetwerk.net`, add:
 
 | Type  | Name / Host | Value                    |
 |-------|-------------|--------------------------|
-| CNAME | `blog`      | `YOURUSERNAME.github.io` |
+| CNAME | `tian`      | `YOURUSERNAME.github.io` |
 
 Replace `YOURUSERNAME` with your GitHub username. Propagation is usually
 minutes, occasionally up to a few hours. The `public/CNAME` file in this
