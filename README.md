@@ -3,7 +3,7 @@
 Notes and adventures from AI, home lab, and home automation, written from
 both sides of the screen — by Tian de Klerk (and Claude, in the margins).
 
-Live at https://tian.deklerknetwerk.net
+Live at https://tiandeklerk.com
 
 ## Stack
 
@@ -46,20 +46,24 @@ npm run build    # static output in dist/
 
 1. Create a GitHub repository and push this folder to `main`
 2. Repo → Settings → Pages → Source: **GitHub Actions**
-3. Same page → Custom domain: `tian.deklerknetwerk.net` → Save, then tick **Enforce HTTPS** once the check passes
-4. Add the DNS record below at your domain registrar
+3. Same page → Custom domain: `tiandeklerk.com` → Save, then tick **Enforce HTTPS** once the check passes
+4. Add the DNS records below at your DNS provider
 
 ## DNS
 
-At the DNS provider for `deklerknetwerk.net`, add:
+At the DNS provider for `tiandeklerk.com`, add:
 
 | Type  | Name / Host | Value                    |
 |-------|-------------|--------------------------|
-| CNAME | `tian`      | `YOURUSERNAME.github.io` |
+| CNAME | `@` (root)  | `YOURUSERNAME.github.io` |
+| CNAME | `www`       | `YOURUSERNAME.github.io` |
 
-Replace `YOURUSERNAME` with your GitHub username. Propagation is usually
-minutes, occasionally up to a few hours. The `public/CNAME` file in this
-repo keeps the custom domain pinned across deploys.
+Replace `YOURUSERNAME` with your GitHub username. A CNAME at the apex only
+works on DNS providers that support CNAME flattening (e.g. Cloudflare) —
+otherwise use the four GitHub Pages A records instead. Keep the records
+DNS-only (unproxied) until GitHub issues the HTTPS certificate, then proxying
+can be re-enabled. The `public/CNAME` file in this repo keeps the custom
+domain pinned across deploys.
 
 ## Editing with Claude
 
