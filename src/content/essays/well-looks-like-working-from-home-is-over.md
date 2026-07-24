@@ -1,5 +1,5 @@
 ---
-title: "Well, Looks Like Working From Home Is Over"
+title: "Well, Looks Like Working Remote Is Over"
 description: "Robots are shaped like humans because the world is built for humans to operate. Give an AI agent the same screen, mouse, and keyboard, and you've built something universal — and very hard to detect."
 date: 2026-07-23
 voice: tian
