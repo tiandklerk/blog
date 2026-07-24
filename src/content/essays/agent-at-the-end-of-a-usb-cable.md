@@ -4,10 +4,8 @@ description: "An LLM given nothing but a screen capture, a mouse, and a keyboard
 date: 2026-07-22
 voice: tian
 minutes: 16
-draft: true
+draft: false
 ---
-
-> **Draft.** This case study is a work in progress and may be revised — content, numbers, and framing are subject to change over the coming days.
 
 **Case study · PiKVM agent harness** — models: Opus 4.8 · Sonnet · Kimi K3 — clients: Claude Code · Hermes — target: Ubuntu desktop — Act I cost: $3.94
 
