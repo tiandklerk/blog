@@ -9,13 +9,15 @@ draft: true
 
 > **Draft.** This case study is a work in progress and may be revised — content, numbers, and framing are subject to change over the coming days.
 
-**Case study · PiKVM agent harness** — models: Opus 4.8 · Sonnet · Kimi K3 — clients: Claude Code · Hermes — target: Ubuntu · plex-server-01 — Act I cost: $3.94
+**Case study · PiKVM agent harness** — models: Opus 4.8 · Sonnet · Kimi K3 — clients: Claude Code · Hermes — target: Ubuntu desktop — Act I cost: $3.94
 
 ## Why this is a computer-only task
 
 Most "AI agent controls a computer" demos cheat a little: there's an accessibility API underneath, a browser driver, or an SSH session with structured output. This harness allows none of that. The agent's entire world is a JPEG of the monitor and a virtual USB keyboard/mouse exposed by a [PiKVM](https://pikvm.org) — the same interface a human at the desk gets, and the same interface that works when a machine is at a BIOS screen, a boot menu, or a kernel panic, where no in-OS agent can exist.
 
-It's exposed as an **MCP server**, so any MCP-capable agent — Claude Code, or Hermes running an entirely different model — can drive the machine with typed tools and screenshots returned inline. The target throughout is deliberately unforgiving: a *live production server* running Plex. Benign actions only. Nothing that disturbs the service.
+Pull back from the mechanics and the implication gets blunter: this is a general-purpose way to operate **any** system with a screen and a keyboard — no install, no API integration, no cooperation from whatever's running on the other end. It doesn't matter what the software is or whether anyone ever intended it to be automated; if a human could click through it, this can. The unsettling part isn't that a frontier model can pull this off — it's how little that actually takes. Every model in this piece managed it, including ones nobody would call cutting-edge. Imitating a human well enough to open a browser, read a dialog, and click the right button turns out not to demand much intelligence at all.
+
+It's exposed as an **MCP server**, so any MCP-capable agent — Claude Code, or Hermes running an entirely different model — can drive the machine with typed tools and screenshots returned inline. The target throughout is deliberately unforgiving: *a live production Ubuntu desktop with real, already-running services* — not a disposable VM. Benign actions only. Nothing that disturbs what's running on it.
 
 ## Act I — The shopping run
 
@@ -23,12 +25,12 @@ It's exposed as an **MCP server**, so any MCP-capable agent — Claude Code, or 
 
 ### 11:10 — Cold open: read the room from pixels
 
-First screenshot. No context, no shell. From the image alone the agent identifies the OS (Ubuntu, GNOME), the host (`tiandklerk@plex-server-01` in a terminal prompt), and — reading a `curl localhost:32400/identity` response already sitting in the scrollback — that Plex v1.43.3 is alive and serving.
+First screenshot. No context, no shell. From the image alone the agent identifies the OS (Ubuntu, GNOME) from the terminal prompt and package-manager output, and confirms — from output already sitting in the scrollback — that a real service on the box is alive and running.
 
 ![Ubuntu desktop with a terminal showing apt output and a Software Updater dialog offering Install Now with a restart warning](/images/case-studies/agent-usb-cable/01.jpg)
 *pikvm screenshot → 1920×1080 · source: snapshot-wake · the agent's entire worldview*
 
-It also spots a trap: a **Software Updater** dialog whose "Install Now" button warns *"the computer also needs to restart."* On a production media server, that button is a landmine placed one click from the task.
+It also spots a trap: a **Software Updater** dialog whose "Install Now" button warns *"the computer also needs to restart."* On a production server, that button is a landmine placed one click from the task.
 
 ### 11:11 — Defusing the restart dialog
 
@@ -267,6 +269,39 @@ Only round 3 was a vision failure. The other three losses were **misclicks and a
 
 That's the honest final shape of this project. The infrastructure bugs — the twelve-second screenshot, the coordinate drift, the missing playbook — are all gone, and every model here reads the tiles correctly, every time. What's left once perception and plumbing are solved is something closer to **care**: did this particular pass line up a click precisely, and did it remember every step of what it meant to do. That's not a harness defect to patch — it's the same axis humans vary on, and apparently agents do too.
 
+## The receipts: a real before/after
+
+Three days apart, same demo page, both runs pulled straight from the session transcript rather than eyeballed:
+
+| | Before · 2026-07-19, pre-fix | After · 2026-07-22, post-fix |
+|---|---|---|
+| Model | Claude Opus 4.8 | Claude Sonnet 5 |
+| Task | Two full challenges (crosswalks timed out, cars then solved) | Checkbox pass, no image grid drawn |
+| API turns | 71 | 13 |
+| Wall-clock | 10m 16s | 1m 26s |
+| Output tokens | 42,622 | 4,294 |
+
+Read the turn count and the clock first — those are the honest signal. **71 turns down to 13, ten minutes down to ninety seconds**, and that's exactly what the fixes were built to do: fewer round-trips (warm session, batched actions), less time spent discovering strategy the harness now hands over on connect. That part is real and directly attributable to the work in this piece.
+
+> **Not a controlled experiment.** The dollar cost is not as clean a story, and it would be dishonest to present it as one. Priced at the same nominal rate, the "after" run actually comes out *more* expensive ($9.93 vs $8.95) — not because anything got worse, but because this is a vastly longer, more-compacted conversation by now, so simply more accumulated context gets written into cache regardless of the task. Two other variables moved at the same time as the harness: the model (Opus then, Sonnet now — a discrepancy caught only by checking the transcript, not assumed) and the difficulty of the draw itself (two challenges including a timeout, versus a clean pass with no grid at all). None of that invalidates the turns/clock result, but it does mean this table is a real-world snapshot, not a controlled experiment — the one number in this whole piece that *is* a clean, single-variable measurement is still the earlier `11.75s → 0.10s` warm-screenshot figure, isolated on the same device with nothing else changing. Treat this table as the lived confirmation of that number, not a replacement for it.
+
+## A third data point, self-reported
+
+A separate Opus session ran the same demo, drew a **bus** challenge, and solved it on the first attempt — then, asked to, produced its own metrics by reading its own transcript, the same technique used for the table above:
+
+| | |
+|---|---|
+| Model | Claude Opus 4.8 |
+| Challenge | Bus (3×3 grid) |
+| Attempts | 1 |
+| API turns | 31 |
+| Wall-clock | 121.3s |
+| Output tokens | 8,007 |
+
+That's the self-reporting method closing its own loop: told how, an agent can find its own usage data and report it accurately without a human parsing logs on its behalf — this session correctly declined to guess a per-token price it wasn't certain of, exactly as asked. (Priced at this project's own established Opus rate, that comes to about $2.93 — a number filled in after the fact, not something the agent claimed itself.) One honesty note carried over from that report: its screenshots are labeled reconstructions, not real captures, since tool-result image bytes can't be re-embedded into a shareable file the way a direct PiKVM screenshot can — every image elsewhere in this piece is a genuine capture; that one run's illustrations are not, and it said so itself.
+
+Investigating that report's own side-note — that one `run_actions` reply "overflowed the tool-output limit" — turned up a real, fixable pattern rather than a one-off: an **uncropped** verification frame measured **six times** larger than the same call scoped to the captcha widget (~115,000 characters of image data vs. ~19,000), landing close enough to the same ~25,000-token ceiling that tripped up an earlier Sonnet run to be a real risk, not a fluke. The fix — a same-turn nudge toward `crop` on exactly that tool, at exactly the moment an agent omits it — shipped the same day this was found.
+
 ## What it means
 
 - **Latency is a capability, not a comfort.** On timed tasks, the speed of the perceive-act loop decides what's *possible*. A 100× faster loop turned timeouts into solves with the same models and the same eyes.
@@ -290,4 +325,4 @@ A harness that can navigate Amazon's checkout funnel from raw pixels can navigat
 
 ---
 
-*PiKVM (Raspberry Pi Zero 2 W, kvmd 4.132) → Ubuntu server · drivers: Claude Opus 4.8 & Sonnet via Claude Code, Kimi K3 via Hermes on a Raspberry Pi 5 · all actions benign · Plex uptime unaffected · CAPTCHA attempts on Google's own reCAPTCHA v2 demo page, as a capability test · confirm-token 7f3113 expired unused · security hardening pass (click-target guard, token hashing, HTTP bearer auth, untrusted-content framing) live-verified against the real device.*
+*PiKVM (Raspberry Pi Zero 2 W, kvmd 4.132) → Ubuntu server · drivers: Claude Opus 4.8 & Sonnet via Claude Code, Kimi K3 via Hermes on a Raspberry Pi 5 · all actions benign · the target's running services were unaffected · CAPTCHA attempts on Google's own reCAPTCHA v2 demo page, as a capability test · confirm-token 7f3113 expired unused · security hardening pass (click-target guard, token hashing, HTTP bearer auth, untrusted-content framing) live-verified against the real device.*
