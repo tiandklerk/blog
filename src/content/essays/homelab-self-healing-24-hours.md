@@ -4,7 +4,7 @@ description: "It started with fail2ban locking me out of my own network. Again. 
 date: 2026-07-17
 voice: tian
 minutes: 8
-draft: false
+draft: true
 ---
 
 It started with hours of troubleshooting a Raspberry Pi I was convinced had a hardware problem. Devices dropping off, SSH sessions dying mid-command, nothing responding to pings — the kind of intermittent mess that makes you start wondering if the SSD had finally given out (I'd moved every Pi off SD cards a while back, precisely so *this* wouldn't be the answer). I was well into "maybe it's just dying" territory before the actual cause turned up: **fail2ban on my gateway Pi had banned my own devices. Again.** Not a dying drive. Just my own security tool, doing exactly what I'd half-configured it to do, to me.
