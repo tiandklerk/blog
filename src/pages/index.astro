@@ -6,103 +6,73 @@ const essays = (await getCollection('essays', ({ data }) => !data.draft)).sort(
   (a, b) => b.data.date.valueOf() - a.data.date.valueOf()
 );
 
-const voiceLabel = { tian: 'TIAN', claude: 'CLAUDE', duet: 'TIAN × CLAUDE' };
-const marginWho = {
-  tian: 'TIAN, IN THE MARGIN',
-  claude: 'CLAUDE, IN THE MARGIN',
-  both: 'BOTH, IN THE MARGIN',
-};
 const fmt = (d) =>
   d.toLocaleDateString('en-GB', { day: 'numeric', month: 'short', year: 'numeric' });
 ---
 
-<Base title="Tian de Klerk" wide>
-  <div class="narrow">
-    <section class="hero">
-      <h1>A place to share my thoughts.</h1>
-      <p class="sub">
-        Notes and adventures from AI, home lab, and home automation, written from both sides of
-        the screen — by Tian de Klerk.
-      </p>
-    </section>
-  </div>
+<Base title="Tian de Klerk">
+  <section class="hero">
+    <h1>Some things written down.</h1>
+    <p class="sub">
+      Notes and adventures from AI, home lab, and home automation, written from both sides of
+      the screen — by Tian de Klerk.
+    </p>
+  </section>
 
   <p class="section-label">Latest essays</p>
 
   {
     essays.map((post) => (
-      <a class={`post ${post.data.voice}`} href={`/essays/${post.slug}/`}>
-        <div class="essay">
-          <div class="meta">
-            <span class={`byline ${post.data.voice}`}>{voiceLabel[post.data.voice]}</span>
-            <span>{fmt(post.data.date)}</span>
-            {post.data.minutes && <span>{post.data.minutes} min</span>}
-          </div>
-          <h2>{post.data.title}</h2>
-          <p class="dek">{post.data.description}</p>
+      <a class="post" href={`/essays/${post.slug}/`}>
+        <div class="meta">
+          <span>{fmt(post.data.date)}</span>
+          {post.data.minutes && <span>{post.data.minutes} min</span>}
         </div>
-        {post.data.margin && (
-          <div class={`margin by-${post.data.margin.by}`}>
-            <span class="who">{marginWho[post.data.margin.by]}</span>
-            {post.data.margin.text}
-          </div>
-        )}
+        <h2>{post.data.title}</h2>
+        <p class="dek">{post.data.description}</p>
       </a>
     ))
   }
 </Base>
 
 <style>
-  .narrow { max-width: 712px; margin: 0 auto; }
   .hero { padding: 64px 0 48px; }
   .hero h1 {
-    font-family: 'Fraunces', serif; font-weight: 300;
-    font-size: clamp(40px, 7vw, 64px); line-height: 1.05; letter-spacing: -0.02em;
+    font-family: 'JetBrains Mono', monospace; font-weight: 800;
+    font-size: clamp(32px, 6vw, 50px); line-height: 1.06; letter-spacing: -0.04em;
+    text-transform: lowercase;
   }
   .hero .sub { margin-top: 20px; color: var(--ink-soft); font-size: 18px; max-width: 52ch; }
 
   .section-label {
-    font-family: 'IBM Plex Mono', monospace; font-size: 12px; letter-spacing: 0.12em;
+    font-family: 'JetBrains Mono', monospace; font-size: 12px; letter-spacing: 0.12em;
     color: var(--ink-soft); text-transform: uppercase; margin: 56px 0 4px;
   }
 
   .post {
-    display: grid; grid-template-columns: minmax(0, 1.9fr) minmax(0, 1fr); gap: 44px;
-    padding: 30px 0; border-top: 1px solid var(--line);
-    text-decoration: none;
+    display: block; padding: 26px 0 26px 18px; border-top: 1px solid var(--line);
+    text-decoration: none; position: relative;
   }
-  .post .essay { padding-left: 22px; position: relative; }
-  .post .essay::before { content: ''; position: absolute; left: 0; top: 4px; bottom: 4px; width: 3px; border-radius: 2px; }
-  .post.tian .essay::before { background: var(--tian); }
-  .post.claude .essay::before { background: var(--claude); }
-  .post.duet .essay::before { background: linear-gradient(to bottom, var(--tian) 50%, var(--claude) 50%); }
-  .post .meta { font-family: 'IBM Plex Mono', monospace; font-size: 12px; color: var(--ink-soft); display: flex; gap: 14px; margin-bottom: 10px; flex-wrap: wrap; }
-  .byline.tian { color: var(--tian); }
-  .byline.claude { color: var(--claude); }
-  .byline.duet { color: var(--ink); }
-  .post h2 { font-family: 'Fraunces', serif; font-weight: 600; font-size: 28px; line-height: 1.16; letter-spacing: -0.015em; }
-  .post:hover h2 { text-decoration: underline; text-decoration-thickness: 1.5px; text-underline-offset: 4px; }
-  .post .dek { margin-top: 9px; color: var(--ink-soft); font-size: 16px; }
-
-  .margin {
-    font-family: 'Fraunces', serif; font-style: italic; font-size: 15px; line-height: 1.5;
-    padding-left: 18px; align-self: start; position: relative;
+  .post::before {
+    content: ''; position: absolute; left: 0; top: 26px; height: 22px;
+    width: 4px; border-radius: 2px; background: var(--accent);
+    transition: height 0.18s ease;
   }
-  .margin::before { content: ''; position: absolute; left: 0; top: 4px; bottom: 4px; width: 2px; border-radius: 2px; }
-  .margin.by-claude, .margin.by-both { color: var(--margin-c); }
-  .margin.by-claude::before, .margin.by-both::before { background: var(--claude); }
-  .margin.by-tian { color: var(--margin-t); }
-  .margin.by-tian::before { background: var(--tian); }
-  .margin .who {
-    font-family: 'IBM Plex Mono', monospace; font-style: normal; font-size: 11px;
-    letter-spacing: 0.08em; display: block; margin-bottom: 6px;
+  .post:hover::before { height: calc(100% - 52px); }
+  .post .meta {
+    font-family: 'JetBrains Mono', monospace; font-size: 11.5px; color: var(--ink-soft);
+    display: flex; gap: 14px; margin-bottom: 10px; flex-wrap: wrap;
+    text-transform: lowercase; letter-spacing: 0.02em;
   }
-  .margin.by-claude .who, .margin.by-both .who { color: var(--claude); }
-  .margin.by-tian .who { color: var(--tian); }
+  .post h2 {
+    font-family: 'JetBrains Mono', monospace; font-weight: 700; font-size: 24px;
+    line-height: 1.24; letter-spacing: -0.03em;
+  }
+  .post:hover h2 { color: var(--accent); }
+  .post .dek { margin-top: 9px; color: var(--ink-soft); font-size: 16px; max-width: 64ch; }
 
   @media (max-width: 720px) {
-    .post { grid-template-columns: 1fr; gap: 16px; }
     .hero { padding: 46px 0 36px; }
-    .post h2 { font-size: 24px; }
+    .post h2 { font-size: 23px; }
   }
 </style>

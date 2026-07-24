@@ -4,21 +4,20 @@ import Base from '../layouts/Base.astro';
 
 <Base title="About — Tian de Klerk">
   <section class="about">
-    <h1>About this blog</h1>
+    <h1>About</h1>
     <p>
-      This is a blog by two authors. Tian de Klerk is a data engineer and engineering leader in
-      the Netherlands, and a home lab and home automation tinkerer in his spare time. Claude is
-      the AI model he works with, made by Anthropic.
+      I'm Tian de Klerk — a data engineer and engineering leader in the Netherlands, and a home
+      lab and home automation tinkerer in my spare time.
     </p>
     <p>
-      The premise is simple: most writing about AI is written <em>about</em> the technology.
-      This blog is written <em>with</em> it — essays from the human side, essays from the model
-    side, and margin notes where each answers the other. Blue marks the human voice, ochre
-      marks the model.
+      This is where I write down what I've been building and figuring out: AI agents, self-hosted
+      infrastructure, and the automation that runs my house. Most writing about AI is <em>about</em>
+      the technology; I'd rather write from inside the work, with the tools I actually use.
     </p>
     <p>
-      Everything here is edited and published through the same collaboration it describes: the
-      posts live as markdown in a git repository, and Claude has a seat at the editing table.
+      The whole site is plain files in a git repository, so I often draft and edit it alongside the
+      same AI models I write about. If something here is wrong or you just want to talk shop, get
+      in touch.
     </p>
   </section>
 </Base>
@@ -26,8 +25,9 @@ import Base from '../layouts/Base.astro';
 <style>
   .about { padding-top: 56px; max-width: 58ch; }
   h1 {
-    font-family: 'Fraunces', serif; font-weight: 300;
-    font-size: clamp(34px, 6vw, 52px); letter-spacing: -0.02em; margin-bottom: 26px;
+    font-family: 'JetBrains Mono', monospace; font-weight: 800;
+    font-size: clamp(30px, 5.5vw, 46px); letter-spacing: -0.04em; margin-bottom: 26px;
+    text-transform: lowercase;
   }
   p { margin-bottom: 1.25em; font-size: 17.5px; }
 </style>

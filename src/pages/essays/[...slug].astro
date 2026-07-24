@@ -10,21 +10,19 @@ export async function getStaticPaths() {
 const { post } = Astro.props;
 const { Content } = await post.render();
 
-const voiceLabel = { tian: 'TIAN', claude: 'CLAUDE', duet: 'TIAN × CLAUDE' };
 const marginWho = {
-  tian: 'TIAN, IN THE MARGIN',
-  claude: 'CLAUDE, IN THE MARGIN',
-  both: 'BOTH, IN THE MARGIN',
+  tian: 'IN THE MARGIN',
+  claude: 'IN THE MARGIN',
+  both: 'IN THE MARGIN',
 };
 const fmt = (d) =>
   d.toLocaleDateString('en-GB', { day: 'numeric', month: 'short', year: 'numeric' });
 ---
 
 <Base title={`${post.data.title} — Tian de Klerk`} description={post.data.description}>
-  <article class={`essay-page ${post.data.voice}`}>
+  <article class="essay-page">
     <header class="essay-head">
       <div class="meta">
-        <span class={`byline ${post.data.voice}`}>{voiceLabel[post.data.voice]}</span>
         <span>{fmt(post.data.date)}</span>
         {post.data.minutes && <span>{post.data.minutes} min</span>}
       </div>
@@ -38,7 +36,7 @@ const fmt = (d) =>
 
     {
       post.data.margin && (
-        <aside class={`margin by-${post.data.margin.by}`}>
+        <aside class="margin">
           <span class="who">{marginWho[post.data.margin.by]}</span>
           {post.data.margin.text}
         </aside>
@@ -51,61 +49,89 @@ const fmt = (d) =>
 
 <style>
   .essay-page { padding-top: 52px; }
-  .essay-head { padding-left: 22px; position: relative; margin-bottom: 36px; }
-  .essay-head::before { content: ''; position: absolute; left: 0; top: 6px; bottom: 6px; width: 3px; border-radius: 2px; }
-  .essay-page.tian .essay-head::before { background: var(--tian); }
-  .essay-page.claude .essay-head::before { background: var(--claude); }
-  .essay-page.duet .essay-head::before { background: linear-gradient(to bottom, var(--tian) 50%, var(--claude) 50%); }
-  .meta { font-family: 'IBM Plex Mono', monospace; font-size: 12px; color: var(--ink-soft); display: flex; gap: 14px; margin-bottom: 12px; flex-wrap: wrap; }
-  .byline.tian { color: var(--tian); }
-  .byline.claude { color: var(--claude); }
-  .byline.duet { color: var(--ink); }
+  .essay-head { padding-left: 18px; position: relative; margin-bottom: 36px; }
+  .essay-head::before {
+    content: ''; position: absolute; left: 0; top: 6px; bottom: 6px;
+    width: 4px; border-radius: 2px; background: var(--accent);
+  }
+  .meta {
+    font-family: 'JetBrains Mono', monospace; font-size: 12px; color: var(--ink-soft);
+    display: flex; gap: 14px; margin-bottom: 12px; flex-wrap: wrap;
+    text-transform: lowercase; letter-spacing: 0.02em;
+  }
   h1 {
-    font-family: 'Fraunces', serif; font-weight: 600;
-    font-size: clamp(30px, 5.4vw, 44px); line-height: 1.12; letter-spacing: -0.02em;
+    font-family: 'JetBrains Mono', monospace; font-weight: 800;
+    font-size: clamp(28px, 5vw, 40px); line-height: 1.14; letter-spacing: -0.04em;
   }
   .dek { margin-top: 14px; color: var(--ink-soft); font-size: 18px; }
 
   .prose :global(p) { margin: 0 0 1.25em; font-size: 17.5px; }
   .prose :global(h2) {
-    font-family: 'Fraunces', serif; font-weight: 600; font-size: 26px;
-    letter-spacing: -0.01em; margin: 1.6em 0 0.6em;
+    font-family: 'JetBrains Mono', monospace; font-weight: 800; font-size: 24px;
+    letter-spacing: -0.03em; margin: 1.7em 0 0.6em;
   }
-  .prose :global(h3) { font-family: 'Fraunces', serif; font-weight: 600; font-size: 21px; margin: 1.4em 0 0.5em; }
-  .prose :global(a) { text-decoration-thickness: 1.5px; text-underline-offset: 3px; }
+  .prose :global(h3) {
+    font-family: 'JetBrains Mono', monospace; font-weight: 700; font-size: 19px;
+    letter-spacing: -0.02em; margin: 1.4em 0 0.5em;
+  }
+  .prose :global(a) { color: var(--accent); text-decoration-thickness: 1.5px; text-underline-offset: 3px; }
+
+  /* callout-style blockquotes (used throughout the technical essays) */
   .prose :global(blockquote) {
-    border-left: 3px solid var(--line); padding: 4px 0 4px 18px; margin: 1.4em 0;
-    font-family: 'Fraunces', serif; font-style: italic; color: var(--ink-soft);
+    border-left: 4px solid var(--accent); background: var(--wash-t);
+    padding: 14px 18px; margin: 1.5em 0; border-radius: 0 6px 6px 0;
   }
+  .prose :global(blockquote p) { margin: 0; font-size: 16px; }
+  .prose :global(blockquote p + p) { margin-top: 0.7em; }
+
   .prose :global(code) {
-    font-family: 'IBM Plex Mono', monospace; font-size: 14.5px;
-    background: var(--line); padding: 2px 6px; border-radius: 4px;
+    font-family: 'JetBrains Mono', monospace; font-size: 14px;
+    background: var(--code-bg); padding: 2px 6px; border-radius: 4px;
   }
   .prose :global(pre) {
-    background: #12151c; color: #e9e6de; border-radius: 8px;
-    padding: 16px 18px; overflow-x: auto; margin: 1.4em 0;
+    background: var(--pre-bg); color: var(--pre-fg); border: 1px solid var(--line);
+    border-radius: 8px; padding: 16px 18px; overflow-x: auto; margin: 1.4em 0;
   }
-  .prose :global(pre code) { background: none; padding: 0; font-size: 14px; }
+  .prose :global(pre code) { background: none; padding: 0; font-size: 13.5px; color: inherit; }
   .prose :global(ul), .prose :global(ol) { margin: 0 0 1.25em 1.3em; }
   .prose :global(li) { margin-bottom: 0.4em; }
 
-  .margin {
-    font-family: 'Fraunces', serif; font-style: italic; font-size: 15.5px; line-height: 1.55;
-    padding: 14px 0 14px 18px; margin-top: 40px; position: relative;
+  /* images + captions */
+  .prose :global(img) {
+    display: block; max-width: 100%; height: auto; margin: 1.6em auto 0.4em;
+    border: 1px solid var(--line); border-radius: 8px;
   }
-  .margin::before { content: ''; position: absolute; left: 0; top: 14px; bottom: 14px; width: 2px; border-radius: 2px; }
-  .margin.by-claude, .margin.by-both { color: var(--margin-c); }
-  .margin.by-claude::before, .margin.by-both::before { background: var(--claude); }
-  .margin.by-tian { color: var(--margin-t); }
-  .margin.by-tian::before { background: var(--tian); }
-  .margin .who {
-    font-family: 'IBM Plex Mono', monospace; font-style: normal; font-size: 11px;
-    letter-spacing: 0.08em; display: block; margin-bottom: 6px;
+  .prose :global(img + em) {
+    display: block; text-align: center; font-style: normal;
+    font-family: 'JetBrains Mono', monospace; font-size: 12px;
+    color: var(--ink-soft); margin-bottom: 1.6em;
   }
-  .margin.by-claude .who, .margin.by-both .who { color: var(--claude); }
-  .margin.by-tian .who { color: var(--tian); }
 
-  .back { margin-top: 48px; font-family: 'IBM Plex Mono', monospace; font-size: 13px; }
+  /* tables (the case study leans on these heavily) */
+  .prose :global(table) {
+    width: 100%; border-collapse: collapse; margin: 1.5em 0; font-size: 14.5px;
+    display: block; overflow-x: auto;
+  }
+  .prose :global(th), .prose :global(td) {
+    border: 1px solid var(--line); padding: 8px 12px; text-align: left; vertical-align: top;
+  }
+  .prose :global(th) {
+    font-family: 'JetBrains Mono', monospace; font-size: 12px; text-transform: uppercase;
+    letter-spacing: 0.04em; color: var(--ink-soft); background: var(--wash-t); font-weight: 500;
+  }
+  .prose :global(hr) { border: none; border-top: 1px solid var(--line); margin: 2.4em 0; }
+
+  .margin {
+    border-left: 4px solid var(--accent); background: var(--wash-t);
+    padding: 14px 18px; margin-top: 40px; border-radius: 0 6px 6px 0;
+    font-size: 15.5px; line-height: 1.55;
+  }
+  .margin .who {
+    font-family: 'JetBrains Mono', monospace; font-size: 11px; letter-spacing: 0.08em;
+    text-transform: uppercase; color: var(--accent); display: block; margin-bottom: 6px;
+  }
+
+  .back { margin-top: 48px; font-family: 'JetBrains Mono', monospace; font-size: 13px; }
   .back a { text-decoration: none; color: var(--ink-soft); }
-  .back a:hover { color: var(--ink); }
+  .back a:hover { color: var(--accent); }
 </style>
