@@ -3,7 +3,9 @@ import Base from '../../layouts/Base.astro';
 import { getCollection } from 'astro:content';
 
 export async function getStaticPaths() {
-  const essays = await getCollection('essays', ({ data }) => !data.draft);
+  // Draft essays get pages only in local dev (npm run dev), never in the deployed build.
+  const showDrafts = import.meta.env.DEV;
+  const essays = await getCollection('essays', ({ data }) => showDrafts || !data.draft);
   return essays.map((post) => ({ params: { slug: post.slug }, props: { post } }));
 }
 
@@ -21,6 +23,9 @@ const fmt = (d) =>
 
 <Base title={`${post.data.title} — Tian de Klerk`} description={post.data.description}>
   <article class="essay-page">
+    {post.data.draft && (
+      <div class="draft-banner">draft — visible locally only, not published to the live site</div>
+    )}
     <header class="essay-head">
       <div class="meta">
         <span>{fmt(post.data.date)}</span>
@@ -49,6 +54,11 @@ const fmt = (d) =>
 
 <style>
   .essay-page { padding-top: 52px; }
+  .draft-banner {
+    font-family: 'JetBrains Mono', monospace; font-size: 12px; color: #d29922;
+    border: 1px solid #d29922; border-radius: 6px; padding: 8px 12px; margin-bottom: 28px;
+    text-transform: lowercase; letter-spacing: 0.02em;
+  }
   .essay-head { padding-left: 18px; position: relative; margin-bottom: 36px; }
   .essay-head::before {
     content: ''; position: absolute; left: 0; top: 6px; bottom: 6px;
