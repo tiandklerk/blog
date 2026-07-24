@@ -1,6 +1,6 @@
 ---
 title: "Well, Looks Like Working Remote Is Over"
-description: "Robots are shaped like humans because the world is built for humans to operate. Give an AI agent the same screen, mouse, and keyboard, and you've built something universal — and very hard to detect."
+description: "Robots are shaped like humans because the world is built for humans to operate. Give an AI agent the same screen, mouse, and keyboard, and you've built something universal and very hard to detect."
 date: 2026-07-23
 voice: tian
 minutes: 5
@@ -9,7 +9,7 @@ draft: false
 
 Have you ever wondered why (most) robots are shaped like humans? Maybe you already know: it's because the world was designed to be interacted with by humans. A humanoid robot can interact with anything a human can. Place a robot in a car and you have a self-driving car.
 
-I did a case study (please feel free to read it in full [here](/essays/agent-at-the-end-of-a-usb-cable/)) where I worked with Claude to write a harness for any tool-calling, Sonnet-level agent to be able to drive any desktop using a networked PiKVM. Now you may think, "But Tian, this can already be solved at the OS level, like Anthropic's own Computer Use," to which I would reply, "You're missing the point: it's not efficiency, it's universality."
+I did a case study (please feel free to read it in full [here](/essays/agent-at-the-end-of-a-usb-cable/)) where I worked with Claude to write a harness for any tool-calling, Sonnet-level agent to be able to drive any desktop using a networked [PiKVM](https://pikvm.org/). Now you may think, "But Tian, this can already be solved at the OS level, like Anthropic's own Computer Use," to which I would reply, "You're missing the point: it's not efficiency, it's universality."
 
 This means you can automate things that previously required some type of access to your OS-level API, SSH, or a CLI. You also don't need to stitch a workflow together. Copying data from one system to another would once have required API calls and access; now it just needs a USB and HDMI cable, the same thing you'd need to interact with your computer. API integration would most probably be more efficient and consistent, but this is more universally applicable, whether it's Mac, Linux, or Windows.
 
