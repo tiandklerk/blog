@@ -4,7 +4,7 @@ description: "It started with fail2ban locking me out of my own network. Again. 
 date: 2026-07-17
 voice: tian
 minutes: 8
-draft: true
+draft: false
 ---
 
 It started one evening after a very long day. I noticed some of my hosted services were down, and I tracked it down to my Raspberry Pi 4 that I used as a sort of nginx gateway. I sometimes ran into issues with it and would end up restarting it. Even after trying that, I found I could still not SSH in, and Portainer was not responding either, so I was sure it was a hardware problem (in hindsight I should have checked if my other services were online). I had issues with the SD card before and had already done a project with AI to convert to a USB SSD as OS storage, so I could not understand what the hardware issue was. I needed to confirm on the desktop. This prompted an (and I wish I was kidding) hour and a half search for my mini HDMI to HDMI cable so I could just see what the error was. When I finally found it, I got it booted on a monitor and... everything was fine. I realized it must have been fail2ban that banned me. I cleared myself out of the jail and disabled the service.
