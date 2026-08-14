@@ -16,6 +16,8 @@ const essays = defineCollection({
       })
       .optional(),
     minutes: z.number().optional(),
+    // Estimated share of the finished prose that originated in AI-written text (0–100).
+    ai: z.number().min(0).max(100).optional(),
     draft: z.boolean().default(false),
   }),
 });

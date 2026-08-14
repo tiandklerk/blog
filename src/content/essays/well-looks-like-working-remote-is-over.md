@@ -4,6 +4,7 @@ description: "What if, to have an AI control your desktop, you did not have to i
 date: 2026-07-23
 voice: tian
 minutes: 5
+ai: 0
 draft: false
 ---
 

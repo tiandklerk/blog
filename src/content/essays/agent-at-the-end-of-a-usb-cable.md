@@ -4,6 +4,7 @@ description: "An LLM given nothing but a screen capture, a mouse, and a keyboard
 date: 2026-07-22
 voice: tian
 minutes: 16
+ai: 95
 draft: false
 ---
 
