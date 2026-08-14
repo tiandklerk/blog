@@ -6,7 +6,7 @@ import Base from '../layouts/Base.astro';
   <section class="about">
     <h1>About</h1>
     <p>
-      I'm Tian de Klerk — a data engineer and engineering leader in the Netherlands, and a home
+      I'm Tian de Klerk, a data engineer and engineering leader in the Netherlands, and a home
       lab and home automation tinkerer in my spare time.
     </p>
     <p>
@@ -19,6 +19,20 @@ import Base from '../layouts/Base.astro';
       same AI models I write about. If something here is wrong or you just want to talk shop, get
       in touch.
     </p>
+
+    <h2 id="ai-share">How the "% AI" works</h2>
+    <p>
+      Some posts carry a small badge like <span class="egtag">~50% AI</span>. It's my honest estimate
+      of how much of the finished prose originated in AI-written text, measured against the first draft.
+      If an AI wrote the first draft, it starts at 100%; as I rewrite, cut, and add my own words, it
+      drops. A piece I wrote myself starts at 0%.
+    </p>
+    <p>
+      The key rule: fixing mechanics never changes who authored the substance. Text I wrote stays mine
+      even after an AI fixes my spelling or grammar, and AI-written text stays AI even after I tidy it
+      up. Only real rewriting, cutting, and adding moves the number. It's a considered estimate, not a
+      provable metric, and I round it.
+    </p>
   </section>
 </Base>
 
@@ -30,4 +44,12 @@ import Base from '../layouts/Base.astro';
     text-transform: lowercase;
   }
   p { margin-bottom: 1.25em; font-size: 17.5px; }
+  h2 {
+    font-family: 'JetBrains Mono', monospace; font-weight: 700; font-size: 20px;
+    letter-spacing: -0.02em; margin: 2em 0 0.6em; scroll-margin-top: 80px;
+  }
+  .egtag {
+    font-family: 'JetBrains Mono', monospace; font-size: 12px; color: var(--accent);
+    border: 1px solid var(--accent); border-radius: 4px; padding: 1px 6px; white-space: nowrap;
+  }
 </style>

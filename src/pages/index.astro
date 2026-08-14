@@ -30,6 +30,9 @@ const fmt = (d) =>
           {post.data.draft && <span class="draft-tag">draft</span>}
           <span>{fmt(post.data.date)}</span>
           {post.data.minutes && <span>{post.data.minutes} min</span>}
+          {post.data.ai !== undefined && (
+            <span class="ai-tag">{post.data.ai === 0 ? '0% AI' : `~${post.data.ai}% AI`}</span>
+          )}
         </div>
         <h2>{post.data.title}</h2>
         <p class="dek">{post.data.description}</p>
@@ -71,6 +74,10 @@ const fmt = (d) =>
   .draft-tag {
     color: #d29922; border: 1px solid #d29922; border-radius: 4px;
     padding: 1px 6px; font-size: 10.5px; letter-spacing: 0.04em;
+  }
+  .ai-tag {
+    color: var(--accent); border: 1px solid var(--accent); border-radius: 4px;
+    padding: 1px 6px; font-size: 10.5px; letter-spacing: 0.04em; text-transform: none;
   }
   .post h2 {
     font-family: 'JetBrains Mono', monospace; font-weight: 700; font-size: 24px;

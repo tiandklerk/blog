@@ -4,6 +4,7 @@ description: "It started with fail2ban locking me out of my own network. Again. 
 date: 2026-07-17
 voice: tian
 minutes: 8
+ai: 50
 draft: false
 ---
 
