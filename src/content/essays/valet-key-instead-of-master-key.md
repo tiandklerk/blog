@@ -4,6 +4,7 @@ description: "How a homelab of autonomous agents stopped holding real API keys, 
 date: 2026-08-04
 voice: tian
 minutes: 8
+ai: 100
 draft: true
 ---
 

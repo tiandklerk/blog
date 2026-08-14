@@ -4,6 +4,7 @@ description: "My gateway Pi kept 'going down' while still answering pings, so I 
 date: 2026-07-28
 voice: tian
 minutes: 10
+ai: 100
 draft: true
 ---
 

@@ -4,6 +4,7 @@ description: "The one rule behind my homelab's AI night shift: no agent grades i
 date: 2026-07-30
 voice: tian
 minutes: 7
+ai: 100
 draft: true
 ---
 
