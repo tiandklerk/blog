@@ -1,0 +1,52 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>School Lines</title>
+  <meta name="description" content="School systems around the world drawn as metro lines, lined up by age so countries can be compared.">
+  <link rel="icon" href="favicon.svg" type="image/svg+xml">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Overpass:wght@400;600;700;800;900&family=Overpass+Mono:wght@400;600&display=swap">
+  <link rel="stylesheet" href="css/styles.css">
+</head>
+<body>
+  <a class="skip" href="#main">Skip to content</a>
+  <div class="wrap">
+    <header class="top">
+      <div class="roundel" aria-hidden="true"><span>SCHOOL</span></div>
+      <div>
+        <h1>School Lines</h1>
+        <p class="lede">School systems drawn as metro lines. Each <b>station</b> is a stage of schooling,
+          placed at the <b>age</b> pupils usually reach it. Branches show the routes pupils can take,
+          and dotted lines show transfers between them. Switch the stations to show fares (fees) or how
+          many people get that far. Pick a country, or compare countries side by side by age.</p>
+      </div>
+      <button class="theme-btn" id="themeBtn" type="button" aria-label="Toggle dark mode" title="Toggle dark mode">
+        <svg viewBox="0 0 24 24" width="20" height="20" aria-hidden="true"><path fill="currentColor" d="M12 3a9 9 0 1 0 9 9 7 7 0 0 1-9-9Z"/></svg>
+      </button>
+    </header>
+
+    <nav class="tabs" role="tablist" aria-label="View">
+      <a class="tab" role="tab" id="tab-explore" href="#/nl">Explore a country</a>
+      <a class="tab" role="tab" id="tab-compare" href="#/compare/nl,en">Compare by age</a>
+    </nav>
+
+    <main id="main"></main>
+
+    <footer class="foot">
+      <p>Ages are typical starting ages; individual pupils vary with birthdays, repeating or skipping
+        years, and regional rules. Stage levels follow the <abbr title="International Standard Classification of Education">ISCED 2011</abbr> scale.
+        Fares are typical fees at public providers and exclude living costs.
+        Attainment, PPP and GDP figures come from UNESCO-UIS and the World Bank. Every country lists its sources.
+        This is not official guidance; check with the
+        relevant school or authority for decisions.</p>
+      <p>Inspired by <a href="https://www.reddit.com/user/trunobozzini2" rel="noopener">u/trunobozzini2</a>’s Dutch “School Line” map, expanded here to 38 systems. Built as a static site; see the README to add a country.</p>
+    </footer>
+  </div>
+
+  <aside class="panel" id="panel" aria-live="polite" hidden></aside>
+  <script type="module" src="js/app.js"></script>
+</body>
+</html>
