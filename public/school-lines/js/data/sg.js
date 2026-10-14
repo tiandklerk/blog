@@ -76,7 +76,8 @@ export default {
     { id: 'sg-cc', line: 'early', name: 'Childcare', local: 'Infant care / childcare centre', ages: [0, 4], isced: 0,
       desc: 'Full-day infant care and childcare. Fees at Anchor and Partner Operators are capped by the ' +
         'government, and citizen children get a Basic Subsidy plus an income-tested Additional Subsidy ' +
-        'from ECDA.' },
+        'from ECDA.',
+      cost: { amount: 7320, note: 'Anchor Operator full-day childcare cap $610/month excl. GST (Partner $650; infant care $1,235/$1,290), before Basic and income-tested subsidies for citizens.', src: 9 } },
     { id: 'sg-k2', line: 'early', name: 'K1–K2', local: 'Kindergarten 1–2', ages: [4, 6], isced: 0,
       desc: 'Two years of kindergarten. MOE Kindergartens (MK) charge a fixed fee, with full-day ' +
         'Kindergarten Care (KCare) on top; lower-income families get KiFAS fee assistance.',
@@ -97,7 +98,7 @@ export default {
         'secondary school. Admission to some schools is also possible through Direct School Admission ' +
         '(DSA) based on talents.',
       exam: 'PSLE (Primary School Leaving Examination)',
-      events: ['DSA-Sec applications (May–June)', 'PSLE oral and listening (Aug)', 'PSLE written papers (late Sep – early Oct)', 'PSLE results: 24/25 Nov 2026', 'Secondary school choices (7 days after results)', 'S1 posting results: 18 Dec 2026'],
+      events: ['DSA-Sec applications (May–June)', 'PSLE oral exams (Aug)', 'Listening comprehension (mid-Sep)', 'PSLE written papers (late Sep)', 'PSLE results: 24/25 Nov 2026', 'Secondary school choices (7 days after results)', 'S1 posting results: 18 Dec 2026'],
       cost: { amount: 156, note: 'Citizens: $13/month miscellaneous fees; no PSLE fee for citizens in national schools.', src: 0 } },
     // Secondary
     { id: 'sg-s1', line: 'sec', name: 'Sec 1–2', local: 'Lower secondary (Full SBB)', ages: [12, 14], isced: 2,
@@ -136,7 +137,8 @@ export default {
     { id: 'sg-ma', line: 'uni', name: 'Master', local: 'Master\'s (coursework / research)', ages: [23, 25], isced: 7,
       desc: 'Coursework masters (1–2 years) are mostly unsubsidised and expensive; research masters ' +
         'are often funded by scholarships.',
-      exam: 'Master\'s degree' },
+      exam: 'Master\'s degree',
+      cost: { amount: 57880, note: 'Example: NUS MSc Electrical/Computer Engineering AY2026/27, whole 1-year programme incl. GST; self-funded, no citizen subsidy. Research masters often funded.', src: 10 } },
     { id: 'sg-phd', line: 'uni', name: 'PhD', local: 'Doctor of Philosophy', ages: [25, 29], isced: 8,
       desc: 'Research doctorate of about 4 years. Most full-time PhD students hold university or ' +
         'A*STAR research scholarships that pay tuition and a monthly stipend.',
@@ -187,5 +189,7 @@ export default {
     { title: 'MOE Singapore — Compulsory education', url: 'https://www.moe.gov.sg/education-in-sg/compulsory-education' },
     { title: 'ECDA — Preschool subsidies', url: 'https://www.ecda.gov.sg/parents/preschool-subsidies' },
     { title: 'MOE Singapore — Secondary courses and PSLE score ranges', url: 'https://www.moe.gov.sg/secondary/courses' },
+    { title: 'ECDA — Anchor Operator Scheme (monthly fee caps)', url: 'https://www.ecda.gov.sg/parents/choosing-a-preschool/aop' },
+    { title: 'NUS Electrical & Computer Engineering — MSc coursework programme fees (AY2026/27)', url: 'https://cde.nus.edu.sg/ece/wp-content/uploads/sites/3/2025/10/ECE_MScFees_appendix.pdf' },
   ],
 };

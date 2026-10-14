@@ -95,9 +95,10 @@ export default {
       events: ['School year starts late January / early February', 'On-entry assessment (state-based)'],
       cost: { amount: 0, private: 5500, note: 'Free at government schools (voluntary contributions). Private: about $5,500/student private income at Catholic schools, ~$14,800 at independents (2024).', src: 11 } },
     { id: 'au-y12a', line: 'primary', name: 'Years 1–2', ages: [6, 8], isced: 1,
-      desc: 'Early primary. NSW, SA and others run a Year 1 phonics screening check; a national ' +
-        'phonics check was agreed for all states.',
-      events: ['Year 1 phonics check (several states)'],
+      desc: 'Early primary. Under the national school funding agreement a Year 1 phonics check is being ' +
+        'rolled out in every state and territory in 2025–26, and most are trialling or introducing a ' +
+        'Year 1 numeracy check from 2026.',
+      events: ['Year 1 phonics check (all states by 2026)'],
       cost: { amount: 0, private: 5500, note: 'Free at government schools; private figure is the Catholic-school average (2024).', src: 11 } },
     { id: 'au-y3', line: 'primary', name: 'Year 3', ages: [8, 9], isced: 1,
       desc: 'First NAPLAN tests (reading, writing, conventions of language, numeracy). Since 2023 ' +
@@ -229,5 +230,6 @@ export default {
     { title: 'The Educator — School income per student by sector, 2024 (ACARA data)', url: 'https://www.theeducatoronline.com/k12/news/private-schools-pull-further-ahead-as-funding-gap-widens/288863' },
     { title: 'Australian Qualifications Framework', url: 'https://www.aqf.edu.au/' },
     { title: 'Australian Apprenticeships', url: 'https://www.apprenticeships.gov.au/' },
+    { title: 'EducationHQ — Ministers speed up Year 1 numeracy check rollout (30 Jun 2025)', url: 'https://educationhq.com/news/not-a-test-ministers-speed-up-year-1-numeracy-check-rollout-195819/' },
   ],
 };

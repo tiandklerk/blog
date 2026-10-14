@@ -34,7 +34,7 @@ export default {
     'Costs are for 2026. Public schooling is free from age 0 childcare to the end of high school ' +
     '(except private autonomous high schools). Universities charge tuition and most students are at ' +
     'private institutions. Hagwon (private academies) and tutoring are not counted, though families ' +
-    'spend heavily on them.',
+    'spend heavily on them: ₩27.5 trillion in 2025, with three in four pupils taking part.',
   lines: [
     { id: 'early', name: 'Eorinijip / Yuchiwon', color: '#7C8A93', lane: 0,
       desc: 'Daycare centres (어린이집) from birth to 5, and kindergartens (유치원) from 3 to 5. All ' +
@@ -199,6 +199,6 @@ export default {
     { title: 'Newsis — 2026 MOE budget: free education and care for ages 4–5, free high school', url: 'https://www.newsis.com/view/NISX20251107_0003393885' },
     { title: 'Hankyung — free high-school education and its funding (March 2026)', url: 'https://www.hankyung.com/article/2026033064491' },
     { title: 'Korea Law Information Center — Elementary and Secondary Education Act (초·중등교육법)', url: 'https://www.law.go.kr/법령/초·중등교육법' },
-    { title: 'Wikipedia — Education in South Korea (hagwon and private tutoring)', url: 'https://en.wikipedia.org/wiki/Education_in_South_Korea' },
+    { title: 'e-나라지표 (MOE / national statistics) — 사교육비 및 참여율 (private tutoring spending and participation)', url: 'https://www.index.go.kr/unify/idx-info.do?idxCd=2697' },
   ],
 };

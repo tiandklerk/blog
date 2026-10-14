@@ -30,7 +30,7 @@ export default {
   costNote:
     'Public schooling is free, and textbooks have been free in public schools since 2019. Creche Feliz makes ' +
     'crèche free in participating settings. The higher-education figure is the legal maximum propina for ' +
-    '2025/26; stand-alone masters and doctorates set their own fees.',
+    '2025/26; stand-alone masters and doctorates set their own fees (Aveiro 2026/27 shown).',
   lines: [
     { id: 'creche', name: 'Creche', color: '#7C8A93', lane: 0,
       desc: 'Crèche for children from 4 months to 3 years, supervised by the Ministry of Labour, Solidarity ' +
@@ -126,10 +126,12 @@ export default {
     { id: 'pt-mes', line: 'uni', name: 'Mestrado', ages: [21, 23], isced: 7,
       desc: 'Master, 90–120 ECTS (1½–2 years), with a dissertation, project or internship. Fees for masters ' +
         'that are not required for professional practice are set by each institution.',
-      exam: 'Mestre' },
+      exam: 'Mestre',
+      cost: { amount: 1000, note: 'Univ. of Aveiro 2026/27 propina for a non-professional master (national students); masters required for a profession cost €697.', src: 7 } },
     { id: 'pt-dout', line: 'uni', name: 'Doutoramento', ages: [23, 27], isced: 8,
       desc: 'Doctorate, typically 3–4 years, often funded by an FCT grant. Fees are set by each institution.',
-      exam: 'Doutor' },
+      exam: 'Doutor',
+      cost: { amount: 2750, note: 'Univ. of Aveiro 2026/27 in sciences, engineering and health (€2,000 humanities); FCT grants usually cover fees.', src: 7 } },
     // Profissional
     { id: 'pt-p1011', line: 'prof', name: '10º–11º', local: 'Curso profissional', ages: [15, 17], isced: 3,
       desc: 'Modular courses in areas such as IT, tourism, electronics or health, combining general, ' +
@@ -166,5 +168,6 @@ export default {
     { title: 'Segurança Social — Creche Feliz', url: 'https://www.seg-social.pt/creche-feliz' },
     { title: 'Eurydice — Portugal: organisation of upper secondary education', url: 'https://eurydice.eacea.ec.europa.eu/national-education-systems/portugal/organisation-general-upper-secondary-education' },
     { title: 'DGES — Cursos técnicos superiores profissionais', url: 'https://www.dges.gov.pt/pt/pagina/cursos-tecnicos-superiores-profissionais' },
+    { title: 'Universidade de Aveiro — Circular 13-REIT/2026: valor de propinas 2026/2027', url: 'https://api-portal.ua.pt/api/v1/file/90554' },
   ],
 };

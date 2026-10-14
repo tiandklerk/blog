@@ -11,8 +11,9 @@ export default {
   flag: '🇸🇦',
   summary:
     'Kindergarten (ages 3–6), then a 6-3-3 ladder: six years of primary school, three years of ' +
-    'intermediate school and three years of secondary school. Since 2022 secondary school uses the ' +
-    'Masarat (tracks) system: a common first year, then two years in one of five tracks: general, ' +
+    'intermediate school and three years of secondary school. Secondary school uses the Masarat ' +
+    '(tracks) system (common first year since 2021-22, tracks since 2022-23): a common first year, then ' +
+    'two years in one of five tracks: general, ' +
     'computer science and engineering, health and life, business administration, or Sharia. University ' +
     'admission combines the secondary GPA with two national tests run by the Education and Training ' +
     'Evaluation Commission (Etec): the General Aptitude Test (Qudurat) and the Achievement Test (Tahsili). ' +
@@ -46,7 +47,8 @@ export default {
     { id: 'sec', name: 'Secondary (Masarat)', color: '#7A3E9D', lane: -1, from: 'sa-g9',
       desc: 'Secondary school (al-thanawiyya), 3 years under the Masarat system: a common first year, ' +
         'then a track in years 2–3 (general; computer science and engineering; health and life; business ' +
-        'administration; Sharia). A credit-hour (courses) system is also used in some schools.' },
+        'administration; Sharia). The year has three terms, nine over the stage. Masarat replaces the older ' +
+        'credit-hour (courses) system.' },
     { id: 'uni', name: 'University', color: '#4B2470', lane: -1, from: 'sa-s23',
       desc: 'About 30 public universities plus private universities and colleges. Bachelor degrees take 4 ' +
         'years (5–6 in engineering, pharmacy and medicine), often starting with a common first year ' +
@@ -144,6 +146,7 @@ export default {
     { title: 'Ministry of Education, Saudi Arabia', url: 'https://www.moe.gov.sa/en/' },
     { title: 'Technical and Vocational Training Corporation (TVTC)', url: 'https://tvtc.gov.sa/' },
     { title: 'Vision 2030 — Human Capability Development Program', url: 'https://www.vision2030.gov.sa/en/explore/programs/human-capability-development-program' },
-    { title: 'Wikipedia — Education in Saudi Arabia (structure; English from grade 1 since 2021)', url: 'https://en.wikipedia.org/wiki/Education_in_Saudi_Arabia' },
+    { title: 'Ministry of Education — مسارات الثانوية العامة (secondary school tracks)', url: 'https://moe.gov.sa/ar/education/generaleducation/StudyPlans/Pages/SecondarySchoolTracks.aspx' },
+    { title: 'Ministry of Education — English taught from first grade from 2021-22 (28 Sep 2021)', url: 'https://www.moe.gov.sa/en/mediacenter/MOEnews/Pages/english-tech-2021-76.aspx' },
   ],
 };

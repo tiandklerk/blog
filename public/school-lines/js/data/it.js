@@ -120,7 +120,7 @@ export default {
     { id: 'it-l34', line: 'lic', name: 'Classi 3–4', local: 'Liceo, triennio', ages: [16, 18], isced: 3,
       desc: 'School-work orientation (PCTO, at least 90 hours over the triennio in licei) and ' +
         'credits (crediti scolastici) that count towards the maturità score.',
-      cost: { amount: 0, note: 'Small state school taxes from class 4, waived for lower-income families.' } },
+      cost: { amount: 21, note: 'Class 4 only: state taxes €6.04 iscrizione + €15.13 frequenza; waived if ISEE ≤ €20,000 or average ≥ 8/10.', src: 10 } },
     { id: 'it-l5', line: 'lic', name: 'Classe 5', ages: [18, 19], isced: 3,
       desc: 'INVALSI tests in March, then the maturità in mid/late June: a national written ' +
         'Italian paper, a second written paper in the school\'s core subject, and an oral. Score ' +
@@ -128,7 +128,7 @@ export default {
         '127/2025, with the oral focused on four subjects.',
       exam: 'Diploma di maturità',
       events: ['INVALSI tests (March)', 'Maturità written papers (June)', 'Oral exam (late June–July)'],
-      cost: { amount: 0, note: 'Small state exam and diploma taxes, waived for lower-income families.' } },
+      cost: { amount: 42, note: 'State taxes: frequenza €15.13 + exam €12.09 + diploma €15.13; waived if ISEE ≤ €20,000.', src: 10 } },
     { id: 'it-lt', line: 'uni', name: 'Triennale', local: 'Laurea (triennale)', ages: [19, 22], isced: 6,
       desc: '3 years, 180 CFU. Many students take longer. Since 2025/26 medicine has replaced its ' +
         'entrance test with an open first "filter semester" (semestre filtro), followed by ranked ' +
@@ -159,7 +159,7 @@ export default {
         'maturità includes a technical second paper.',
       exam: 'Diploma di maturità (tecnico)',
       events: ['Maturità (June)'],
-      cost: { amount: 0, note: 'Small state school taxes in the last two years, waived for lower-income families.' } },
+      cost: { amount: 21, note: 'About €21 a year: state taxes of €63.52 in total in classes 4–5; waived if ISEE ≤ €20,000.', src: 10 } },
     { id: 'it-its', line: 'its', name: 'ITS Academy', local: 'Istituti Tecnologici Superiori', ages: [19, 21], isced: 5,
       desc: '4 semesters (ISCED 5, EQF 5) or 6 semesters (EQF 6) in areas such as mechatronics, ' +
         'ICT, energy, agri-food, tourism and fashion. Strong employment outcomes; credits can ' +
@@ -175,7 +175,7 @@ export default {
       desc: 'Vocational specialisation with work placements, ending in the maturità.',
       exam: 'Diploma di maturità (professionale)',
       events: ['Maturità (June)'],
-      cost: { amount: 0, note: 'Small state school taxes in the last two years, waived for lower-income families.' } },
+      cost: { amount: 21, note: 'About €21 a year: state taxes of €63.52 in total in classes 4–5; waived if ISEE ≤ €20,000.', src: 10 } },
     { id: 'it-ief3', line: 'iefp', name: 'Qualifica', local: 'IeFP, 3 anni', ages: [14, 17], isced: 3,
       desc: 'Three-year regional course (e.g. hairdresser, electrician, cook, mechanic) with ' +
         'internships, satisfying compulsory education. Ends in a regional exam.',
@@ -199,12 +199,13 @@ export default {
     { title: 'Eurydice — Italy: overview of the education system', url: 'https://eurydice.eacea.ec.europa.eu/eurypedia/italy/overview' },
     { title: 'Ministero dell\'Istruzione e del Merito (MIM)', url: 'https://www.mim.gov.it/' },
     { title: 'Ministero dell\'Università e della Ricerca (MUR)', url: 'https://www.mur.gov.it/' },
-    { title: 'Wikipedia (it) — Esame di maturità (Decree-Law 127/2025)', url: 'https://it.wikipedia.org/wiki/Esame_di_maturità' },
+    { title: 'Normattiva — Decreto-legge 9 settembre 2025, n. 127 (riforma dell\'esame di maturità), testo coordinato con L. 164/2025', url: 'https://www.normattiva.it/eli/id/2025/11/05/25A06015/' },
     { title: 'Tecnica della Scuola — Iscrizioni 2026/2027: i dati ufficiali MIM', url: 'https://www.tecnicadellascuola.it/iscrizioni-2026-2027-i-dati-ufficiali-valditara-esulta-per-il-42-il-55-dei-neo-iscritti-andra-al-liceo-pdf' },
     { title: 'QuiFinanza — Tasse universitarie 2024/25 (MUR statistical office data via Il Sole 24 Ore)', url: 'https://quifinanza.it/attualita/tasse-universita-classifica-2026/1013901/' },
     { title: 'Orizzonte Scuola — Bonus asilo nido 2026, circolare INPS n. 29/2026', url: 'https://www.orizzontescuola.it/bonus-asilo-nido-2026-domande-valide-fino-ai-3-anni-e-importi-fino-a-3-600-euro-circolare-inps/' },
     { title: 'Universita.it — ISEE universitario 2025/26 e no tax area (€22,000)', url: 'https://www.universita.it/?p=1180445' },
     { title: 'MUR Ustat — Focus: la contribuzione studentesca negli atenei', url: 'https://ustat.mur.gov.it/media/1262/focus-la-contribuzione-studentesca-negli-atenei-e-negli-istituti-afam-nellanno-accademico-2021-2022.pdf' },
     { title: 'Cittadinanzattiva — Osservatorio prezzi e tariffe: asili nido', url: 'https://www.orizzontescuola.it/nido-e-asilo-quanto-mi-costi-report-di-cittadinanzattiva/' },
+    { title: 'ISIS Facchinetti (state school) — Tasse scolastiche obbligatorie ed esonero (D.Lgs. 297/1994, ISEE ≤ €20,000)', url: 'https://isisfacchinetti.edu.it/wp-content/uploads/2023/08/TASSE-SCOLASTICHE-OBBLIGATORIE-ED-ESONERO.docx.pdf' },
   ],
 };

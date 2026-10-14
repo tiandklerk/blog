@@ -134,8 +134,9 @@ export default {
       events: ['Humanities / science track choice (bunkei / rikei)'],
       cost: { amount: 0, note: 'Public tuition covered. Private tuition support up to ¥457,200 from April 2026; facility fees extra.', src: 4, private: 457331 } },
     { id: 'jp-hg3', line: 'futsu', name: 'Kōkō 3', local: '高校3年', ages: [17, 18], isced: 3,
-      desc: 'Final year, dominated by university admissions. About half of new university entrants ' +
-        'now enter through school recommendation or comprehensive selection (sōgō-gata) in autumn; ' +
+      desc: 'Final year, dominated by university admissions. Just over half of new university entrants ' +
+        '(53.6% in 2025: 34.1% school recommendation, 19.5% comprehensive selection) are admitted in autumn ' +
+        'and early winter without the general exam; ' +
         'the rest take the Common Test in mid-January and the universities\' own exams from late ' +
         'February. Graduates may also go to a junior college, a senmon gakkō, or straight to work.',
       exam: 'High-school diploma; University Entrance Common Test (共通テスト)',
@@ -195,7 +196,7 @@ export default {
     { id: 'jp-kosen1', line: 'kosen', name: 'Kōsen 1–3', local: '高専 1〜3年', ages: [15, 18], isced: 3,
       desc: 'First three years of a college of technology, at upper-secondary level: general subjects ' +
         'plus engineering. Admission by entrance exam at 15. Students live in dormitories at many colleges.',
-      cost: { amount: 115800, note: 'National kōsen tuition ¥234,600 minus high-school tuition support (¥118,800) in years 1–3. Entrance fee ¥84,600.', src: 8 } },
+      cost: { amount: 0, note: 'From April 2026 high-school support covers the full national kōsen tuition (¥234,600) in years 1–3, no income limit. Entrance fee ¥84,600.', src: 11 } },
     { id: 'jp-kosen4', line: 'kosen', name: 'Kōsen 4–5', local: '高専 4〜5年', ages: [18, 20], isced: 5,
       desc: 'Final two years at short-cycle tertiary level, with a graduation research project. About ' +
         'half of graduates go straight to work in industry; many others continue.',
@@ -233,5 +234,7 @@ export default {
     { title: 'Institute of National Colleges of Technology (KOSEN) — admissions guide 2025 (tuition)', url: 'https://www.kosen-k.go.jp/wp/wp-content/uploads/2024/06/nyugakuannai2025.pdf' },
     { title: 'University of the Ryukyus — 2027 entrance exam schedule (Common Test 16–17 Jan 2027)', url: 'https://www.u-ryukyu.ac.jp/wp-content/uploads/2026/06/R9schedule-1.pdf' },
     { title: 'Meguro City (Tokyo) — 0–2歳 第1子保育料無償化 (Sept 2025)', url: 'https://www.city.meguro.tokyo.jp/hoiku/kosodatekyouiku/hoikuennado/rinnku_daiissi.html' },
+    { title: 'National Institute of Technology, Asahikawa College — 高専1〜3年生の授業料実質無償化 (FY2026 support)', url: 'https://www.asahikawa-nct.ac.jp/guide/pdf/R8_tsuikamusho.pdf' },
+    { title: 'MEXT — 令和7年度国公私立大学・短期大学入学者選抜実施状況の概要 (admissions by route, Nov 2025)', url: 'https://www.mext.go.jp/b_menu/houdou/2020/1414952_00009.html' },
   ],
 };

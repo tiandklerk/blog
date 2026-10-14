@@ -138,8 +138,8 @@ export default {
         'social service (servicio social). Escuelas normales train teachers at this level.',
       exam: 'Título de licenciatura',
       share: { pct: 38, of: 'of higher-education students attend private institutions (2024–25)', src: 7 },
-      cost: { amount: 0, private: 49000,
-        note: 'UNAM charges an optional 25-centavo fee; some state universities charge modest fees. Private: about MXN 49,000 average; elite ones far more.', src: 11 } },
+      cost: { amount: 0, private: 48900,
+        note: 'UNAM charges an optional 25-centavo fee; some state universities charge modest fees. Private: about MXN 48,900 a year on average (INEGI, as reported May 2026); elite ones far more.', src: 11 } },
     { id: 'mx-mae', line: 'uni', name: 'Maestría', ages: [22, 24], isced: 7,
       desc: 'Master\'s degree, usually 2 years. Programmes in the national postgraduate system ' +
         '(SNP) come with SECIHTI (formerly CONAHCYT) stipends for full-time students.',
@@ -155,11 +155,11 @@ export default {
     { id: 'mx-tsu', line: 'tsu', name: 'TSU', local: 'Técnico Superior Universitario', ages: [18, 20], isced: 5,
       desc: 'Two-year applied programme at a universidad tecnológica, with a final work placement ' +
         '(estadía) in a company.',
-      exam: 'Título de TSU', cost: { amount: 0, note: 'Public; universidades tecnológicas charge only modest, state-set fees.', src: 8 } },
+      exam: 'Título de TSU', cost: { amount: 7700, note: 'About: UT Tijuana 2026, MXN 2,566 inscription per cuatrimestre × 3 (plus insurance). Each UT sets its own fees; many charge less.', src: 14 } },
     { id: 'mx-ing', line: 'tsu', name: 'Lic./Ing.', local: 'Continuación a licenciatura o ingeniería', ages: [20, 21.5], isced: 6,
       desc: 'TSU graduates can continue for about 1½ years to a licenciatura or ingeniería at the ' +
         'same university.',
-      exam: 'Licenciatura / Ingeniería', cost: { amount: 0, note: 'Public; modest state-set fees.', src: 8 } },
+      exam: 'Licenciatura / Ingeniería', cost: { amount: 7700, note: 'About the same per-cuatrimestre fees as the TSU stage; set by each universidad tecnológica.', estimate: true } },
     { id: 'mx-cona', line: 'cona', name: 'Prof. técnico', local: 'Profesional Técnico Bachiller (CONALEP)', ages: [15, 18], isced: 3,
       desc: 'Three-year vocational programme with workplace training (including a dual model) ' +
         'leading to a profesional técnico bachiller title.',
@@ -189,5 +189,6 @@ export default {
     { title: 'El Imparcial — Las universidades más costosas de México en 2026 (INEGI average private spending)', url: 'https://www.elimparcial.com/dinero/2026/05/11/estas-son-las-10-universidades-mas-costosas-de-mexico-en-2026-del-itesm-a-tecmilenio-los-costos-semestrales-oscilan-entre-79-mil-y-185-mil-pesos/' },
     { title: 'SECIHTI — Secretaría de Ciencia, Humanidades, Tecnología e Innovación (posgrado scholarships)', url: 'https://secihti.mx/' },
     { title: 'CENEVAL — EXANI-II admission exam', url: 'https://www.ceneval.edu.mx/' },
+    { title: 'Universidad Tecnológica de Tijuana — Convocatoria de inscripciones nuevo ingreso 2026 (cuota cuatrimestral)', url: 'https://uttijuana.edu.mx/wp-content/uploads/2026/07/CONV-INSCRIPCION.pdf' },
   ],
 };

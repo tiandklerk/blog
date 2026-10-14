@@ -32,7 +32,8 @@ export default {
     'Figures are for 2026. Public primary, junior school and day senior school are tuition-free and funded ' +
     'by per-learner capitation grants (KES 22,244 a year for senior school), although late or partial ' +
     'payments push some schools to levy parents. Public boarding schools may charge up to KES 53,554 a year. ' +
-    'University and TVET costs depend on a means-tested band under the 2023 funding model.',
+    'University and TVET costs depend on a means-tested band under the 2023 funding model: the bachelor figure is a ' +
+    'typical household share, TVET figures the full KES 67,189 fee before support, postgraduate fees one university\'s rates.',
   lines: [
     { id: 'early', name: 'Pre-primary', color: '#7C8A93', lane: 0,
       desc: 'Pre-primary (PP1 and PP2), offered in county-run ECDE centres attached to public primary ' +
@@ -60,7 +61,7 @@ export default {
         'Universities and Colleges Central Placement Service (KUCCPS). Since 2023 government-sponsored ' +
         'students are funded under a means-tested model: scholarship + HELB loan + household contribution. ' +
         'The High Court declared it unconstitutional in December 2024, but the Court of Appeal stayed that ' +
-        'ruling in March 2025, so the model remains in use pending appeal.' },
+        'ruling in March 2025, so the model remains in use; no final appeal judgment had been reported by October 2026.' },
     { id: 'tvet', name: 'TVET', color: '#2C9546', lane: 1, from: 'ke-f4',
       desc: 'Technical and vocational education and training: national polytechnics, technical training ' +
         'institutes and vocational training centres, with competency-based courses at KNQF levels ' +
@@ -146,22 +147,22 @@ export default {
     { id: 'ke-ma', line: 'uni', name: 'Master\'s', ages: [22, 24], isced: 7,
       desc: 'Master\'s degrees take 1.5–2 years, often part-time; they are not covered by the government ' +
         'funding model.', exam: 'Master\'s degree',
-      cost: { amount: 200000, note: 'About; postgraduate fees are set by each university. Figure not verified.', estimate: true } },
+      cost: { amount: 216400, note: 'Egerton University 2024/25 MSc (science) year 1, KES 427,300 for two years; one university\'s figure, set by each university.', src: 13 } },
     { id: 'ke-phd', line: 'uni', name: 'PhD', ages: [24, 27], isced: 8,
       desc: 'Doctoral research, at least 3 years.', exam: 'Doctorate (PhD)',
-      cost: { amount: 200000, note: 'About; set by each university. Figure not verified.', estimate: true } },
+      cost: { amount: 255900, note: 'Egerton University 2024/25 PhD (arts/social sciences) year 1; business PhDs cost about KES 350,000. One university\'s figure.', src: 13 } },
     // TVET
     { id: 'ke-cert', line: 'tvet', name: 'Certificate', local: 'Artisan / craft certificate', ages: [18, 20], isced: 4,
       desc: 'Artisan (KNQF 4, about 1 year) and craft certificate (KNQF 5, about 2 years) courses. Craft ' +
         'certificates usually need a KCSE mean grade of D; artisan courses have lower entry requirements. ' +
         'Assessed by KNEC or the TVET Curriculum Development, Assessment and Certification Council (CDACC).',
       exam: 'Artisan / craft certificate',
-      cost: { amount: 10000, note: 'About; household share under the means-tested model, after capitation and HELB loan. Figure not verified.', estimate: true } },
+      cost: { amount: 67189, note: 'Consolidated annual TVET fee from May 2026, before scholarship, capitation and HELB loan; households pay a means-tested share.', src: 14 } },
     { id: 'ke-dip', line: 'tvet', name: 'Diploma', local: 'National diploma (KNQF 6)', ages: [20, 22], isced: 5,
       desc: 'Three-year diploma (KNQF 6); direct entry needs a KCSE mean grade of C− or a craft certificate. ' +
         'A higher diploma (1 year) can follow.',
       exam: 'Diploma',
-      cost: { amount: 10000, note: 'About; household share under the means-tested model. Figure not verified.', estimate: true } },
+      cost: { amount: 67189, note: 'Consolidated annual TVET fee from May 2026, incl. assessment; scholarship and HELB loan cover most of it for needy students.', src: 14 } },
     // 8-4-4 legacy
     { id: 'ke-f3', line: 'legacy', name: 'Form 3', ages: [16, 17], isced: 3,
       desc: 'Penultimate 8-4-4 year; in 2026 the last-but-one 8-4-4 class is in Form 4 and the final class in Form 3.',
@@ -194,5 +195,7 @@ export default {
     { title: 'Eastleigh Voice — Court of Appeal stays ruling on university funding model', url: 'https://eastleighvoice.co.ke/university%20funding%20model/130782/court-of-appeal-overturns-ruling-suspending-ruto-s-university-funding-model' },
     { title: 'KICD / UNESCO — Basic Education Curriculum Framework', url: 'https://unesdoc.unesco.org/ark:/48223/pf0000250431' },
     { title: 'KUCCPS — Kenya Universities and Colleges Central Placement Service', url: 'https://www.kuccps.ac.ke/' },
+    { title: 'Egerton University — Approved fees for postgraduate diploma, master\'s and PhD programmes (2024/25)', url: 'https://www.egerton.ac.ke/images/egerton_university/downloads/students/Approved_Fees_Structures_Postgraduate_Programmes_2024.pdf' },
+    { title: 'People Daily — CS Ogamba announces KES 67,189 annual TVET fee (March 2026)', url: 'https://peopledaily.digital/news/cs-ogamba-announces-ksh67k-annual-tvet-fee' },
   ],
 };

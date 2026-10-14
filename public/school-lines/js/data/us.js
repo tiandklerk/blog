@@ -143,7 +143,7 @@ export default {
     { id: 'us-ged', line: 'ged', name: 'GED / HiSET', ages: [16, 18], isced: 3,
       desc: 'A four-subject test battery that gives a high-school equivalency credential. It is ' +
         'accepted by community colleges and most employers.', exam: 'High-school equivalency',
-      cost: { amount: 120, note: 'About $120 for the four tests (typically $30 each); fees vary by state and some states, e.g. New York, charge nothing', src: 11 } },
+      cost: { amount: 120, note: 'About $120–160 for the four tests ($30–40 per subject in most states); fees are set by each state', src: 11 } },
   ],
   transfers: [
     { from: 'us-aa', to: 'us-ba', label: 'Community college → university', desc: 'The “2+2” route: transfer as a junior after an associate degree. Many states guarantee transfer agreements.' },
@@ -164,6 +164,6 @@ export default {
     { title: 'NCES Digest — Table 330.50: Graduate tuition and required fees', url: 'https://nces.ed.gov/programs/digest/d22/tables/dt22_330.50.asp' },
     { title: 'AAMC — Tuition and Student Fees Reports (2025–26)', url: 'https://www.aamc.org/data-reports/reporting-tools/report/tuition-and-student-fees-reports' },
     { title: 'BLS — College enrollment and work activity of recent high school graduates (2024)', url: 'https://www.bls.gov/news.release/hsgec.nr0.htm' },
-    { title: 'Wikipedia — GED (test fees)', url: 'https://en.wikipedia.org/wiki/GED' },
+    { title: 'GED Testing Service — How much does getting a GED cost?', url: 'https://www.ged.com/blog/how-much-does-getting-a-ged--cost--fees--courses---amp--material.html' },
   ],
 };

@@ -28,10 +28,10 @@ export default {
     note:
       'The Universal Basic Education Act 2004 makes primary and junior secondary school (9 years) free and ' +
       'compulsory. The National Policy on Education also counts one year of pre-primary as basic education. ' +
-      'Enforcement is weak: Nigeria has one of the largest out-of-school populations in the world (about ' +
-      '18 million children by advocacy estimates). In February 2025 the Ministry proposed extending ' +
-      'compulsory basic education to 12 years (to the end of SSS) while keeping the 6-3-3 structure; its ' +
-      'adoption had not been confirmed when this was written.',
+      'Enforcement is weak: UNICEF (2024) counts 10.2 million primary-age and 8.1 million junior-secondary-age ' +
+      'children out of school, one of the largest totals in the world. In February 2025 the Ministry proposed extending ' +
+      'compulsory basic education to 12 years (to the end of SSS) while keeping the 6-3-3 structure, with a ' +
+      'decision due at the October 2025 Council meeting; no adoption had been publicly confirmed by October 2026.',
   },
   costNote:
     'Figures are for 2025/26 in naira. Tuition is free at public primary and junior secondary schools, and ' +
@@ -125,24 +125,24 @@ export default {
         'tertiary courses. The JAMB Unified Tertiary Matriculation Examination (UTME) is taken around the ' +
         'same time. WAEC and NECO began moving objective papers to computer-based testing from late 2025.',
       exam: 'WASSCE (WAEC) / SSCE (NECO)',
-      events: ['JAMB UTME: usually April–May', 'WASSCE: April–June', 'NECO SSCE: June–July', 'Post-UTME screening and CAPS admission: July–October'],
+      events: ['JAMB UTME: usually April–May', 'WASSCE: April–June (2026: 21 April – 19 June)', 'NECO SSCE: June–July', 'Post-UTME screening and CAPS admission: July–October'],
       cost: { amount: 0, note: 'Tuition-free in most states; WAEC/NECO registration is paid by families or, in some states, by government.' } },
     // University
     { id: 'ng-ba', line: 'uni', name: 'Bachelor', ages: [18, 22], isced: 6,
       desc: 'Most bachelor\'s degrees take 4 years (100–400 level); engineering, law and pharmacy 5, ' +
         'medicine 6. Graduates under 30 then do a year of National Youth Service (NYSC). Since 2024 the ' +
         'Nigerian Education Loan Fund (NELFUND) offers interest-free loans for institutional fees plus ' +
-        'monthly upkeep to students of public institutions; over 1 million had benefited by early 2026.',
+        '₦20,000 monthly upkeep to students of public institutions; over 1 million had benefited by early 2026.',
       exam: 'Bachelor\'s degree', events: ['NYSC national service year after graduation'],
       cost: { amount: 140000, private: 1500000,
         note: 'About; UNILAG charges ₦100,750–190,250 plus ₦20,000 utilities (no tuition). State universities often charge more; private ₦0.5–12 million.', src: 5 } },
     { id: 'ng-ma', line: 'uni', name: 'Master\'s', ages: [23, 25], isced: 7,
       desc: 'Master\'s degrees take 1–2 years after NYSC; a postgraduate diploma (PGD) can bridge from an ' +
         'HND or a third-class degree.', exam: 'Master\'s degree',
-      cost: { amount: 250000, note: 'About; postgraduate fees vary widely by university and are not covered by NELFUND. Figure not verified.', estimate: true } },
+      cost: { amount: 246700, note: 'University of Ibadan new-student charges for an MSc Computer Science (2026 report); one university\'s figure. Not covered by NELFUND.', src: 14 } },
     { id: 'ng-phd', line: 'uni', name: 'PhD', ages: [25, 29], isced: 8,
       desc: 'Doctoral research, nominally 3 years, often longer.', exam: 'Doctorate (PhD)',
-      cost: { amount: 250000, note: 'About; varies by university. Figure not verified.', estimate: true } },
+      cost: { amount: 341700, note: 'University of Ibadan new-student charges for a PhD Computer Science (2026 report); one university\'s figure, varies by programme.', src: 14 } },
     // Polytechnic
     { id: 'ng-nd', line: 'poly', name: 'ND / OND', local: 'Ordinary National Diploma', ages: [18, 20], isced: 5,
       desc: 'Two-year national diploma in engineering, business, science or environmental studies. Entry ' +
@@ -163,7 +163,7 @@ export default {
         'with a teaching practice. Several federal colleges were converted into universities of education ' +
         'in 2023–24.',
       exam: 'Nigeria Certificate in Education (NCE)',
-      cost: { amount: 50000, note: 'About; assumed similar to federal polytechnic fees (not verified for colleges of education).', estimate: true } },
+      cost: { amount: 50000, note: 'About; FCE Abeokuta charged about ₦42,000 plus levies in 2022/23. No current official schedule found.', estimate: true } },
     // Technical college
     { id: 'ng-tc', line: 'tech', name: 'Technical college', local: 'Technical College 1–3', ages: [15, 18], isced: 3,
       desc: 'Three years of craft training (e.g. electrical installation, motor mechanics, building) plus ' +
@@ -192,5 +192,8 @@ export default {
     { title: 'Awajis — Federal Polytechnic Ado-Ekiti school fees 2025/2026', url: 'https://awajis.com/fedpolyado-school-fees/' },
     { title: 'Joint Admissions and Matriculation Board (JAMB)', url: 'https://www.jamb.gov.ng/' },
     { title: 'West African Examinations Council (WAEC) Nigeria', url: 'https://www.waecnigeria.org/' },
+    { title: 'UNICEF Nigeria — Immediate action needed to protect Nigeria\'s children and schools (Sept 2024)', url: 'https://www.unicef.org/nigeria/press-releases/immediate-action-needed-protect-nigerias-children-and-schools' },
+    { title: 'Legit.ng — University of Ibadan publishes fees for master\'s and PhD Computer Science students (June 2026)', url: 'https://www.legit.ng/people/1716517-university-ibadan-releases-school-fees-masters-phd-computer-science-students/' },
+    { title: 'Headteacher.ng — WAEC releases 2026 WASSCE timetable, exams to begin April 21', url: 'https://www.headteacher.ng/waec-releases-2026-wassce-timetable-exams-to-begin-april-21/' },
   ],
 };

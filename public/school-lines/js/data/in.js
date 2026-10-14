@@ -63,8 +63,8 @@ export default {
     { id: 'uni', name: 'University', color: '#174E9C', lane: -1, from: 'in-h12',
       desc: 'Universities and their affiliated colleges (about 1,170 universities and 45,000 colleges). ' +
         'Bachelor degrees take 3 or 4 years under the UGC four-year undergraduate programme (FYUGP) ' +
-        'framework, followed by a 1–2 year master and a PhD. About 44.6% of students are in private ' +
-        'unaided colleges (AISHE 2021-22).' },
+        'framework, followed by a 1–2 year master and a PhD. Private unaided colleges (65% of colleges) ' +
+        'enrol about 44.6% of college students (AISHE 2021-22).' },
     { id: 'poly', name: 'Polytechnic diploma', color: '#DD7710', lane: 1, from: 'in-c10',
       desc: 'Three-year engineering diploma after Class 10 at government or private polytechnics ' +
         '(approved by AICTE, examined by state technical boards). Holders can join a B.Tech in the ' +
@@ -136,7 +136,7 @@ export default {
         'are filled by rank in JEE/NEET through JoSAA (IITs, NITs) and MCC/state counselling (medicine). ' +
         'About 18,000 IIT seats for over a million JEE candidates.',
       exam: 'B.Tech / MBBS',
-      cost: { amount: 200000, note: 'IIT tuition is about ₹2 lakh a year; waived fully below ₹1 lakh family income and two-thirds up to ₹5 lakh.', src: 12 } },
+      cost: { amount: 200000, note: 'IIT tuition ₹1 lakh a semester (IIT BHU 2025-26); waived for SC/ST/PwD and below ₹1 lakh family income, two-thirds off up to ₹5 lakh.', src: 12 } },
     { id: 'in-mtech', line: 'eng', name: 'M.Tech / MD', local: 'M.Tech / M.E. (2 yrs), MD/MS (3 yrs)', ages: [22, 24], isced: 7,
       desc: 'Postgraduate engineering via GATE (with a monthly stipend at many public institutes); ' +
         'medical specialisation via NEET-PG.',
@@ -160,7 +160,7 @@ export default {
       desc: 'Two years after a 3-year bachelor, or one year after a 4-year Honours degree (UGC 2022 ' +
         'framework). MBA admission uses CAT and other tests.',
       exam: 'Master\'s degree',
-      cost: { amount: 10000, note: 'About the same as bachelor fees at central universities; varies widely by state and programme.', estimate: true } },
+      cost: { amount: 8757, note: 'Example: University of Delhi M.A. Sociology, 2025-26 (tuition ₹240 plus welfare, development and facilities charges). Varies by programme and state.', src: 18 } },
     { id: 'in-phd', line: 'uni', name: 'PhD', ages: [23, 27], isced: 8,
       desc: 'Minimum 3 years (UGC 2022 regulations). Entry with a master, or directly after a 4-year ' +
         'Honours with Research degree. UGC-NET (June and December) qualifies for Junior Research ' +
@@ -175,8 +175,8 @@ export default {
       cost: { amount: 13000, private: 35000, note: 'Example: Uttarakhand government polytechnics, 2025 (tuition + student welfare fee). Fees vary by state.', src: 14 } },
     // ITI
     { id: 'in-iti', line: 'iti', name: 'ITI trade', local: 'Industrial Training Institute (1–2 yrs)', ages: [16, 18], isced: 3,
-      desc: 'Practical craft training, with admission on Class 8 or Class 10 marks. Most ITIs are ' +
-        'private. The National Trade Certificate (NTC) is awarded after the All India Trade Test.',
+      desc: 'Practical craft training, with admission on Class 8 or Class 10 marks. About three ' +
+        'quarters of the 14,682 ITIs are private (11,337 in 2025). The National Trade Certificate (NTC) is awarded after the All India Trade Test.',
       exam: 'National Trade Certificate',
       cost: { amount: 3350, private: 19315, note: 'Example: Punjab annual admission fee, government vs private ITIs. Fees vary by state.', src: 15 } },
     { id: 'in-appr', line: 'iti', name: 'Apprentice', local: 'Apprenticeship (Apprentices Act 1961)', ages: [18, 19], isced: 3,
@@ -200,11 +200,11 @@ export default {
       desc: 'Strong B.Tech graduates can enter PhD programmes directly at IITs and other institutes.' },
   ],
   sources: [
-    { title: 'Ministry of Education — National Education Policy 2020', url: 'https://www.education.gov.in/sites/upload_files/mhrd/files/NEP_Final_English_0.pdf' },
+    { title: 'Ministry of Education — National Education Policy 2020 (PDF via Press Information Bureau)', url: 'https://static.pib.gov.in/WriteReadData/userfiles/NEP_Final_English_0.pdf' },
     { title: 'PIB / MoSPI — Results of Comprehensive Modular Survey: Education 2025 (26 Aug 2025)', url: 'https://www.pib.gov.in/PressReleasePage.aspx?PRID=2160863' },
     { title: 'NSO — NSS Report No. 595, CMS: Education 2025 (Statements 1.3, 2.5)', url: 'https://microdata.gov.in/NADA/index.php/catalog/255' },
     { title: 'Ministry of Education — UDISE+ 2024-25 booklet', url: 'https://dashboard.udiseplus.gov.in/report-new-v.6-demo2025/static/media/UDISE%2B2024_25_Booklet_existing.118ba29d4773e6372f72.pdf' },
-    { title: 'Ministry of Education — All India Survey on Higher Education 2021-22', url: 'https://education.gov.in/sites/upload_files/mhrd/files/statistics-new/AISHE%20Book_2021-22_4.pdf' },
+    { title: 'Ministry of Education — All India Survey on Higher Education 2021-22, final report', url: 'https://cdnbbsr.s3waas.gov.in/s392049debbe566ca5782a3045cf300a3c/uploads/2025/06/2025060466438560.pdf' },
     { title: 'Rajya Sabha — Unstarred Q. 342 (6 Dec 2023): age of admission to Class 1', url: 'https://rsdebate.nic.in/bitstream/123456789/746053/1/PQ_262_06122023_U342_p175_p176.pdf' },
     { title: 'Business Standard — CBSE 2026 board exam fee structure', url: 'https://www.business-standard.com/education/news/what-is-cbse-2026-board-exams-fee-structure-all-class-10-12-details-here-nc-125110301081_1.html' },
     { title: 'Onmanorama — CBSE Class 10 second board exam results 2026', url: 'https://www.onmanorama.com/news/india/2026/07/18/cbse-class-10-second-board-exam-results-declared-59-improve-scores.html' },
@@ -212,11 +212,13 @@ export default {
     { title: 'PW — JEE Advanced 2026 on 17 May (IIT Roorkee)', url: 'https://www.pw.live/news/jee-advanced-2026-exam-may-17-iit-roorkee' },
     { title: 'Careers360 — CUET-UG 2026 schedule', url: 'https://news.careers360.com/cuet-ug-2026-exam-date-registration-begins-nta-hold-exams-from-may-11-31-admission-central-state-universities-cbt-link/amp' },
     { title: 'IIT Guwahati — Fee waiver notice for UG students (April 2026)', url: 'https://academic.iitg.ac.in/acad/Notice/Submission_of_Income_Certificate_Income_Affidavit_MEB_OEB_2026.pdf' },
-    { title: 'FindMyCollege — IIT B.Tech fees (tuition about ₹2 lakh a year)', url: 'https://articles.findmycollege.com/btech-iit-btech-fees/' },
+    { title: 'IIT (BHU) Varanasi — Fee structure 2025-26, 4-year B.Tech (tuition ₹1,00,000 per semester)', url: 'https://iitbhu.ac.in/sites/default/files/institute/academics/fresher/doc/fee_structure_2025-26.pdf' },
     { title: 'University of Delhi — Admissions (UG prospectus and fee structure)', url: 'https://admission.uod.ac.in/' },
     { title: 'Directorate of Technical Education Uttarakhand — Polytechnic admission 2025 fees', url: 'https://dte.uk.gov.in/?p=6122' },
     { title: 'The Tribune — Punjab ITI admission fees (government vs private)', url: 'https://www.tribuneindia.com/news/punjab/snag-hampers-iti-admission-process' },
     { title: 'UNESCO UIS — Data browser (vocational share, private enrolment, compulsory education)', url: 'https://databrowser.uis.unesco.org/' },
     { title: 'Directorate General of Training — Craftsmen Training Scheme (ITI)', url: 'https://dgt.gov.in/' },
+    { title: 'University of Delhi, Academic Branch-I — PG fee structure 2025-26, M.A. Sociology (17 June 2025)', url: 'http://sociology.du.ac.in/wp-content/uploads/2025/06/MA-SOCIOLOGY-2025-26.pdf' },
+    { title: 'Lok Sabha — Unstarred question on ITIs (2025): 14,682 ITIs, 3,345 government and 11,337 private', url: 'https://eparlib.sansad.in/bitstream/123456789/3015710/1/AU6_YgIBln.pdf' },
   ],
 };

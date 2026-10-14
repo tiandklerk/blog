@@ -67,7 +67,7 @@ export default {
     { id: 'nz-ece0', line: 'early', name: 'ECE', local: 'Early learning centre / home-based care', ages: [0, 3], isced: 0,
       desc: 'Education and care for under-3s, mostly in private or community-owned centres. Families ' +
         'pay fees, with help from the means-tested Childcare Subsidy and the FamilyBoost tax credit.',
-      cost: { amount: 7000, note: 'About NZ$130–160 a week (industry estimate, not official), before Childcare Subsidy or FamilyBoost.', src: 12 } },
+      cost: { amount: 21000, note: 'About: e.g. University of Auckland centres 2026, NZ$443.50 a week full-time for under-2s (community rate), before Childcare Subsidy/FamilyBoost.', src: 12 } },
     { id: 'nz-ece3', line: 'early', name: '20 Hours', local: '20 Hours ECE (kindergarten / kōhanga reo)', ages: [3, 5], isced: 0,
       desc: 'All 3-, 4- and 5-year-olds can get up to 20 hours a week (6 a day) of fully funded ' +
         'early childhood education. Services may ask for optional charges and charge for extra hours.',
@@ -133,12 +133,12 @@ export default {
       desc: 'New Zealand Certificates at levels 3–4: pre-trade, foundation and vocational programmes, ' +
         'typically a year full-time.',
       exam: 'New Zealand Certificate (level 3–4)',
-      cost: { amount: 7000, note: 'About; fees are set per programme and capped by the annual maximum fee increase (6% in 2026).', estimate: true } },
+      cost: { amount: 4200, note: 'Example: Ara L4 certificate (60 credits, ~19 weeks) NZ$4,102–4,200 in 2026, plus $392.50 services fee. Set per programme.', src: 13 } },
     { id: 'nz-dip', line: 'poly', name: 'Diploma', local: 'NZ Diploma, levels 5–6', ages: [19, 21], isced: 5,
       desc: 'New Zealand Diplomas at levels 5–6 (1–2 years), for example in engineering, business ' +
         'or nursing support. Polytechnics also teach applied bachelor\'s degrees (level 7).',
       exam: 'New Zealand Diploma (level 5–6)',
-      cost: { amount: 7000, note: 'About; set per programme. Fees Free can cover the final year.', estimate: true } },
+      cost: { amount: 9535, note: 'Example: Ara L5 IT diploma 2026, NZ$8,570–9,535 a year plus $392.50 services fee. Fees Free can cover the final year.', src: 14 } },
     // Apprenticeship
     { id: 'nz-app', line: 'appr', name: 'Apprenticeship', local: 'New Zealand Apprenticeship', ages: [17, 21], isced: 4,
       desc: 'Paid job with on-the-job training towards a level 4 New Zealand Certificate (e.g. ' +
@@ -169,7 +169,9 @@ export default {
     { title: 'TEC — Establishment of institutes of technology and polytechnics (2026)', url: 'https://tec.govt.nz/vocational-education/vocational-education/changes-to-the-vocational-education-and-training-vet-system/establishment-of-institutes-of-technology-and-polytechnics' },
     { title: 'Ministry of Education — Redesign of the vocational education and training system', url: 'https://education.govt.nz/our-work/strategies-policies-and-programmes/tertiary-and-further-education/redesign-vocational-education-and-training-system' },
     { title: 'Ministry of Education — Tuition fees and compulsory course costs (AMFM)', url: 'https://www.education.govt.nz/our-work/strategies-policies-and-programmes/tertiary-and-further-education/tuition-fees-and-compulsory-course-costs' },
-    { title: 'NZQA — University Entrance', url: 'https://www2.nzqa.govt.nz/ncea/subjects/university-entrance/' },
-    { title: 'Lifetimes — Childcare options and costs in NZ 2026 (industry estimate)', url: 'https://lifetimes.co.nz/blog/family-benefits/childcare-options-and-costs-in-nz-2026' },
+    { title: 'NZQA — University Entrance', url: 'https://www2.nzqa.govt.nz/ncea/understanding-secondary-quals/university-entrance/' },
+    { title: 'University of Auckland — Early childhood centre fee schedule (from 19 Jan 2026)', url: 'https://www.auckland.ac.nz/assets/on-campus/facilities-and-services/early-childhood-centres/fees-and-information/UoA-ECE-Fees-Schedule-2026.pdf' },
+    { title: 'Ara Institute of Canterbury — NZ Certificate in Study and Employment (Level 4), 2026 fees', url: 'https://www.ara.ac.nz/products/programme/nz2860-opc-new-zealand-certificate-in-study-and-employment-level-4-open-pathway/' },
+    { title: 'Ara Institute of Canterbury — NZ Diploma in IT Technical Support (Level 5), 2026 fees', url: 'https://ara.ac.nz/products/programme/nz2596-stru-new-zealand-diploma-in-information-technology-technical-support-level-5' },
   ],
 };

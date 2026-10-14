@@ -197,7 +197,7 @@ export default {
         'in the German Qualifications Framework (DQR), the same as a bachelor. A Meister can run ' +
         'a craft business, train apprentices, and has general university entrance.',
       exam: 'Meisterbrief (DQR 6)',
-      cost: { amount: 1000, note: 'About €1,000 a year: fees of e.g. ~€7,800 (Munich hairdressing Meister), ~75% covered by Aufstiegs-BAföG grant and loan waiver on passing', src: 10 } },
+      cost: { amount: 2300, note: 'About: €9,200 fees for a 7-month full-time Tischler Meister course (HWK Cottbus 2026/27) less ~75% Aufstiegs-BAföG; exam fees extra', estimate: true } },
   ],
   transfers: [
     { from: 'de-r10', to: 'de-ef', label: 'MSA + Q → Oberstufe', desc: 'A Realschule MSA with the Q-Vermerk gives access to the gymnasiale Oberstufe (or a Berufliches Gymnasium).' },
@@ -222,7 +222,7 @@ export default {
     { title: 'Universität Bremen — Rückmeldung und Semesterbeitrag (WiSe 2026/27: €443.40)', url: 'https://www.uni-bremen.de/studium/starten-studieren/formalitaeten/rueckmeldung-und-semesterbeitrag' },
     { title: 'TUM — Semesterbeitrag Campus München (€97)', url: 'https://www.tum.de/studium/studienfinanzierung/campus-muenchen-wzw-garching-und-tum-asia' },
     { title: 'Aufstiegs-BAföG — Wie wird gefördert?', url: 'https://www.aufstiegs-bafoeg.de/aufstiegsbafoeg/de/die-foerderung/wie-wird-gefoerdert/wie-wird-mit-dem-aufstiegs-bafoeg-gefoerdert.html' },
-    { title: 'HWK München — Meisterkurs Teil I/II Friseure (course fees)', url: 'https://www.hwk-muenchen.de/kurse/meisterkurs-teil-i-ii-friseure-74,0,coursedetail.html?id=1218856' },
+    { title: 'HWK Cottbus — Meisterausbildung Tischler 2026/27 (Teil I €2,200, Teil II €7,000)', url: 'https://medien.hwk-cottbus.de/kurse/Meisterausbildung-Tischler2026.pdf' },
     { title: 'Destatis — Statistischer Bericht Allgemeinbildende Schulen 2024/25 (Tab. 21111-04)', url: 'https://www.destatis.de/DE/Themen/Gesellschaft-Umwelt/Bildung-Forschung-Kultur/Schulen/Publikationen/Downloads-Schulen/statistischer-bericht-allgemeinbildende-schulen-2110100257005.xlsx' },
     { title: 'Universität Freiburg — Studiengebühren in Baden-Württemberg', url: 'https://www.uni-freiburg.de/studium/studiengebuehren/' },
   ],

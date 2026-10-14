@@ -267,9 +267,9 @@ export default {
       desc: 'Pupils can move on to mbo level 1 (Entree), and from there climb the mbo levels.' },
   ],
   sources: [
-    { title: 'Rijksoverheid — Schooladvies en doorstroomtoets', url: 'https://www.rijksoverheid.nl/onderwerpen/toelating-middelbare-school' },
+    { title: 'Rijksoverheid — Schooladvies en doorstroomtoets in groep 8', url: 'https://www.rijksoverheid.nl/themas/onderwijs/schooladvies-en-doorstroomtoets-basisschool' },
     { title: 'DUO — Schooladvies en doorstroomtoets (timeline 2025–2026)', url: 'https://www.duo.nl/zakelijk/primair-onderwijs/leerlingenadministratie/schooladvies-en-doorstroomtoets/index.jsp' },
-    { title: 'VO-raad — Data rondom doorstroomtoets en aanmelding 2025–2026', url: 'https://www.vo-raad.nl/nieuws/data-rondom-doorstroomtoets-en-aanmelding-in-het-vo-2025-2026' },
+    { title: 'VO-raad — Themarapportage doorstroomtoets PO-Raad: verdeling schooladviezen stabiliseert (2026)', url: 'https://www.vo-raad.nl/nieuws/themarapportage-doorstroomtoets-po-raad-veranderende-verdeling-schooladviezen-stabiliseert' },
     { title: 'Onderwijsloket — Het Nederlandse onderwijssysteem', url: 'https://www.onderwijsloket.com/kennisbank/' },
     { title: 'Rijksoverheid — Leerplicht en kwalificatieplicht', url: 'https://www.rijksoverheid.nl/onderwerpen/leerplicht' },
     { title: 'Nuffic — Education system the Netherlands', url: 'https://www.nuffic.nl/en/education-systems/the-netherlands' },

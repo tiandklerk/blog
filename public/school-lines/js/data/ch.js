@@ -19,7 +19,7 @@ export default {
     'sciences, and the Passerelle and higher vocational education keep routes open between the two ' +
     'worlds.',
   ageNote:
-    'Under the HarmoS concordat (2009, joined by most cantons), children start Kindergarten at 4 if ' +
+    'Under the HarmoS concordat (2009, joined by 15 of 26 cantons), children start Kindergarten at 4 if ' +
     'they turn 4 by 31 July. HarmoS counts school years 1H–11H including Kindergarten, so primary ' +
     'grades 1–6 are 3H–8H. Non-HarmoS cantons may require only one Kindergarten year. Ticino has 5 ' +
     'years of primary and 4 of lower secondary, and some cantons have a long Gymnasium starting ' +
@@ -88,7 +88,7 @@ export default {
     { id: 'ch-kita', line: 'kita', name: 'Kita', local: 'Kindertagesstätte / crèche', ages: [1, 4], isced: 0,
       desc: 'Children can start from about 3 months, after 14 weeks of maternity leave. Many ' +
         'families combine part-time Kita with grandparents or playgroups (Spielgruppe).',
-      cost: { amount: 28800, note: 'About: full-cost rate ~CHF 120/day in Zurich (2020 norm cost) for 5 days a week; subsidised families pay income-related tariffs, often far less.', estimate: true } },
+      cost: { amount: 15840, note: 'City of Zurich subsidised Kita, 50% income factor: CHF 66/day × 5 days × 48 weeks. Range CHF 12–120/day; other municipalities differ.', src: 10 } },
     { id: 'ch-kg', line: 'kg', name: 'Kindergarten', local: 'Kindergarten (1H–2H)', ages: [4, 6], isced: 0,
       desc: 'Compulsory in most cantons from the year the child turns 4 by 31 July. Play-based ' +
         'learning, usually mornings plus some afternoons.',
@@ -188,7 +188,8 @@ export default {
       desc: 'Usually part-time alongside work, after an EFZ and several years of experience. ' +
         'Federal exams lead to the Fachausweis or Diplom; HF programmes take 2–3 years. The ' +
         'federal government refunds part of the fees for exam-preparation courses.',
-      exam: 'Eidg. Fachausweis / Diplom / dipl. HF' },
+      exam: 'Eidg. Fachausweis / Diplom / dipl. HF',
+      cost: { amount: 5800, note: 'About: net course fees per person after the 50% federal refund (cap CHF 9,500/10,500), derived from SERI totals; HF fees vary by canton.', estimate: true } },
     { id: 'ch-brucke', line: 'bruecke', name: 'Bridge', local: 'Brückenangebot / 10. Schuljahr', ages: [15, 16], isced: 2,
       desc: 'About 1 in 20 upper-secondary learners is in a transitional programme, most then ' +
         'start an apprenticeship.',
@@ -214,5 +215,7 @@ export default {
     { title: 'SODK / Ecoplan — Familienergänzende Betreuung in den Kantonen (2020)', url: 'https://ch-sodk.s3.amazonaws.com/media/files/2c6b2e70/6a3d/4446/bde3/244ff63cb9c7/2020.11.16_Ecoplan_FEB_de_corrigé_def.pdf' },
     { title: 'Eurydice — Switzerland: Early childhood education and care', url: 'https://eurydice.eacea.ec.europa.eu/eurypedia/switzerland/early-childhood-education-and-care' },
     { title: 'SBFI/SERI — Höhere Berufsbildung', url: 'https://www.sbfi.admin.ch/de/hoehere-berufsbildung' },
+    { title: 'Stadt Zürich — Kita-Elternbeiträge: Berechnungsbeispiele', url: 'https://www.stadt-zuerich.ch/de/lebenslagen/jugend-und-familie/fruehe-kindheit/familienergaenzende-kinderbetreuung/betreuungskosten-und-subventionen/berechnungsbeispiele.html' },
+    { title: 'SBFI/SERI — Bundesbeiträge für Kurse, die auf eidgenössische Prüfungen vorbereiten', url: 'https://www.sbfi.admin.ch/de/bundesbeitraege-fuer-kurse-die-auf-eidgenoessische-pruefungen-vorbereiten' },
   ],
 };

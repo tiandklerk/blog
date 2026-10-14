@@ -32,7 +32,7 @@ export default {
   costNote:
     'School costs are for public schools in 2025/26. Schools in quintiles 1–3 (the poorest 60% of public ' +
     'school learners by policy, with more in practice) charge no fees; fee-paying (quintile 4–5) schools ' +
-    'set fees by parent vote and must exempt poor families. Tertiary figures are 2025 tuition at public ' +
+    'set fees by parent vote and must exempt poor families. Tertiary figures are 2025–26 tuition at public ' +
     'institutions before NSFAS, which pays full tuition for students from households earning up to R350,000.',
   lines: [
     { id: 'early', name: 'ECD', color: '#7C8A93', lane: 0,
@@ -81,7 +81,7 @@ export default {
     // ECD
     { id: 'za-ecd', line: 'early', name: 'ECD', local: 'Early childhood development / crèche', ages: [0, 5], isced: 0,
       desc: 'Day care and early learning for babies to pre-schoolers. Mostly fee-charging, community-run ' +
-        'centres; the 2021 ECD Census counted about 42,000 programmes. Poor children in registered ' +
+        'centres; the 2021 ECD Census counted 42,420 early learning programmes. Poor children in registered ' +
         'programmes attract a per-child subsidy, but many centres are unregistered and get nothing.',
       cost: { amount: 6000, note: 'About R500/month: the 2021 ECD Census average was R509/month (subsidised centres about R208).', src: 2 } },
     // Foundation Phase
@@ -93,7 +93,7 @@ export default {
       cost: { amount: 0, note: 'Free in no-fee schools; fee-paying public schools may charge, with exemptions for poor families.', src: 3 } },
     { id: 'za-g13', line: 'found', name: 'Grades 1–3', ages: [6, 9], isced: 1,
       desc: 'Literacy, numeracy and life skills, usually taught in the home language. National studies ' +
-        '(e.g. PIRLS 2021) found about 80% of Grade 4 learners could not read for meaning.',
+        '(PIRLS 2021, released 2023) found 81% of Grade 4 learners could not read for meaning in any language.',
       cost: { amount: 0, note: 'No fees at quintile 1–3 schools; fee-paying public schools often charge R10,000+ a year, with exemptions.', src: 3 } },
     // Intermediate Phase
     { id: 'za-g46', line: 'inter', name: 'Grades 4–6', ages: [9, 12], isced: 1,
@@ -141,29 +141,29 @@ export default {
     { id: 'za-hons', line: 'uni', name: 'Honours', ages: [21, 22], isced: 6,
       desc: 'One-year honours degree (NQF 8) after a 3-year bachelor\'s, the usual entry route to a master\'s.',
       exam: 'Bachelor Honours degree',
-      cost: { amount: 60000, note: 'About; similar to undergraduate tuition, varies by university. NSFAS does not fund most postgraduate study.', estimate: true } },
+      cost: { amount: 77910, note: 'UCT 2026 BSc Honours fee (BA Honours about R58,600); one university\'s figure. NSFAS does not fund most postgraduate study.', src: 13 } },
     { id: 'za-ma', line: 'uni', name: 'Master\'s', ages: [22, 24], isced: 7,
       desc: 'Master\'s by research or coursework (NQF 9), usually 1–2 years.', exam: 'Master\'s degree',
-      cost: { amount: 50000, note: 'About; varies widely. Bursaries from the NRF and universities are common.', estimate: true } },
+      cost: { amount: 39450, note: 'UCT 2026 MSc by dissertation, per year; coursework master\'s cost about twice as much. One university\'s figure; NRF bursaries common.', src: 13 } },
     { id: 'za-phd', line: 'uni', name: 'Doctorate', ages: [24, 27], isced: 8,
       desc: 'Research doctorate (NQF 10), at least 2 years full time, in practice often 3–5.', exam: 'Doctorate (PhD/DPhil)',
-      cost: { amount: 40000, note: 'About; research fees vary by university and are often covered by NRF or university bursaries.', estimate: true } },
+      cost: { amount: 28440, note: 'UCT 2026 doctoral fee per year; one university\'s figure. Often covered by NRF or university bursaries.', src: 13 } },
     // Diploma
     { id: 'za-dip', line: 'dipl', name: 'Diploma', ages: [18, 21], isced: 6,
       desc: 'Three-year diploma (NQF 6) with work-integrated learning, e.g. in engineering, IT, ' +
         'hospitality or nursing.',
       exam: 'Diploma',
-      cost: { amount: 50000, note: 'About; universities of technology are mostly at the lower end of the 2025 fee range. NSFAS covers eligible students.', estimate: true } },
+      cost: { amount: 50000, note: 'About; UJ\'s 2026 diplomas cost about R38,000–79,000 a year (one university). NSFAS covers eligible students.', src: 14 } },
     { id: 'za-adip', line: 'dipl', name: 'Adv. Diploma', local: 'Advanced Diploma', ages: [21, 22], isced: 6,
       desc: 'One-year advanced diploma (NQF 7), at the level of a bachelor\'s degree; then a postgraduate ' +
         'diploma (NQF 8) can lead to a master\'s.', exam: 'Advanced Diploma',
-      cost: { amount: 50000, note: 'About; similar to diploma tuition.', estimate: true } },
+      cost: { amount: 50000, note: 'About; UJ\'s 2026 advanced diplomas cost about R39,000–86,000 (one university).', src: 14 } },
     // Higher certificate
     { id: 'za-hcert', line: 'hc', name: 'Higher Cert', local: 'Higher Certificate', ages: [18, 19], isced: 5,
       desc: 'One-year vocational higher certificate (NQF 5), e.g. in accounting, IT or education support. ' +
         'Many are offered by registered private higher-education colleges.',
       exam: 'Higher Certificate',
-      cost: { amount: 44000, note: 'About; lower end of 2025 university fees. TVET-college and NSFAS-funded places cost students less.', estimate: true } },
+      cost: { amount: 43200, note: 'UJ 2026 Higher Certificate in IT module fees (one programme). TVET-college and NSFAS-funded places cost students less.', src: 15 } },
     // NC(V)
     { id: 'za-ncv2', line: 'ncv', name: 'Level 2', local: 'NC(V) Level 2', ages: [15, 16], isced: 3,
       desc: 'Level 2: three fundamental subjects (language, maths or maths literacy, life orientation) plus ' +
@@ -221,5 +221,9 @@ export default {
     { title: 'Currency News — South Africa\'s priciest schools for 2025', url: 'https://currencynews.co.za/?p=5564' },
     { title: 'PMG — Question NW4527 to the Minister of Basic Education (BELA implementation)', url: 'https://pmg.org.za/committee-question/32309/' },
     { title: 'VarsityWise — TVET college courses and fees 2026 (estimates)', url: 'https://varsitywise.com/posts/tvet-college-courses-list-2026-engineering-business-more' },
+    { title: 'Daily Maverick — PIRLS 2021: 81% of Grade 4s cannot read for meaning (May 2023)', url: 'https://www.dailymaverick.co.za/article/2023-05-16-international-study-shows-81-of-grade-4s-in-south-africa-cannot-read-for-meaning/' },
+    { title: 'University of Cape Town — 2026 fees booklet (Book 12: Student fees)', url: 'https://uct.ac.za/sites/default/files/media/documents/uct_ac_za/49/2026-fees-booklet.pdf' },
+    { title: 'University of Johannesburg — 2026 Student Fee Booklet', url: 'https://www.uj.ac.za/wp-content/uploads/2022/01/uj-2026-fee-booklet-13032026.pdf' },
+    { title: 'University of Johannesburg — Higher Certificate in IT: 2026 tuition fees', url: 'https://adam.uj.ac.za/csi/docs/2026/HC/HCIT_2026_Tuition_Fees.pdf' },
   ],
 };

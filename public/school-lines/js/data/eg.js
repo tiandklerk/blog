@@ -78,7 +78,7 @@ export default {
     { id: 'azhar', name: 'Al-Azhar', color: '#00A0A6', lane: 3, from: 'eg-kg',
       desc: 'The Al-Azhar system: Azhari institutes for Muslim pupils with the national curriculum plus ' +
         'extensive religious and Arabic studies, separate for boys and girls. Primary 6 years, preparatory ' +
-        '3, secondary 3 (cut from 4 in 1998), leading to Al-Azhar University.' },
+        '3, secondary 3, leading to Al-Azhar University.' },
   ],
   stations: [
     // Kindergarten
@@ -141,14 +141,14 @@ export default {
       desc: 'Most degrees take 4 years; engineering, pharmacy and dentistry 5; medicine 5 plus a 2-year ' +
         'internship. Public universities also run fee-paying credit-hour and “parallel” programmes.',
       exam: 'Bachelor\'s / Licence',
-      cost: { amount: 1000, note: 'About; nominal public fees range about EGP 0–5,000 a year. Private and ahliya universities charge far more.', src: 1 } },
+      cost: { amount: 1000, private: 70000, note: 'About; public study is free by the Constitution apart from small service fees. Ahliya engineering/computing: about EGP 55,000–80,000 (2025/26).', estimate: true } },
     { id: 'eg-ma', line: 'uni', name: 'Master\'s', ages: [22, 25], isced: 7,
       desc: 'A one-year postgraduate diploma (pre-master courses) followed by a research thesis; often ' +
         '2–4 years in total.', exam: 'Master\'s degree (Mājistīr)',
-      cost: { amount: 5000, note: 'About; postgraduate fees at public universities vary by faculty. Figure not verified.', estimate: true } },
+      cost: { amount: 5000, note: 'About; public universities set postgraduate fees by faculty and publish no national schedule. Not verified.', estimate: true } },
     { id: 'eg-phd', line: 'uni', name: 'PhD', ages: [25, 28], isced: 8,
       desc: 'Doctoral research, at least 2–3 years after the master\'s.', exam: 'Doctorate (Duktūrāh)',
-      cost: { amount: 5000, note: 'About; varies by university and faculty. Figure not verified.', estimate: true } },
+      cost: { amount: 5000, note: 'About; set by each university and faculty, no national schedule found. Not verified.', estimate: true } },
     // Technical 3-year
     { id: 'eg-t3', line: 'tech', name: 'Technical', local: 'Technical secondary, 3 years', ages: [15, 18], isced: 3,
       desc: 'Three-year technical secondary school. Quality varies widely, and graduates face high ' +
@@ -159,11 +159,11 @@ export default {
     { id: 'eg-tdip', line: 'techhe', name: 'Diploma', local: 'Technical diploma (2 years)', ages: [18, 20], isced: 5,
       desc: 'Two-year higher technical diploma at a technological university or middle technical institute.',
       exam: 'Higher technical diploma',
-      cost: { amount: 1000, note: 'About; public nominal fees. Figure not verified for technological universities.', estimate: true } },
+      cost: { amount: 1000, note: 'About; assumes nominal public fees. Technological universities publish no fee schedule found. Not verified.', estimate: true } },
     { id: 'eg-tba', line: 'techhe', name: 'B.Tech', local: 'Bachelor of Technology', ages: [20, 22], isced: 6,
       desc: 'Two further years for a bachelor of technology, with industry training.',
       exam: 'Bachelor of Technology',
-      cost: { amount: 1000, note: 'About; public nominal fees. Figure not verified.', estimate: true } },
+      cost: { amount: 1000, note: 'About; assumes nominal public fees as for the diploma. Not verified.', estimate: true } },
     // Technical 5-year
     { id: 'eg-t5a', line: 'tech5', name: 'Years 1–3', local: 'Advanced technical school', ages: [15, 18], isced: 3,
       desc: 'First three years of the five-year advanced technical programme.',
@@ -177,7 +177,7 @@ export default {
     { id: 'eg-az-p', line: 'azhar', name: 'Azhari primary', local: 'Ibtidāʾī Azharī', ages: [6, 12], isced: 1,
       desc: 'Primary education at Azhari institutes, with Qurʾān memorisation and Islamic studies alongside ' +
         'the national curriculum.',
-      cost: { amount: 300, note: 'About; Azhari institutes charge small fees similar to public schools. Not verified.', estimate: true } },
+      cost: { amount: 300, note: 'About; assumed similar to public-school fees (EGP 210–520); no Al-Azhar fee schedule found. Not verified.', estimate: true } },
     { id: 'eg-az-pr', line: 'azhar', name: 'Azhari prep', local: 'Iʿdādī Azharī', ages: [12, 15], isced: 2,
       desc: 'Azhari preparatory stage with its own certificate exam.', exam: 'Azhari preparatory certificate',
       cost: { amount: 300, note: 'About; small fees. Not verified.', estimate: true } },
@@ -188,7 +188,7 @@ export default {
     { id: 'eg-az-u', line: 'azhar', name: 'Al-Azhar Univ.', local: 'Jāmiʿat al-Azhar', ages: [18, 22], isced: 6,
       desc: 'Al-Azhar University: religious faculties (Sharia, Usul al-Din, Arabic) and secular ones ' +
         '(medicine, engineering, commerce), with separate campuses for women.', exam: 'Bachelor\'s / Licence',
-      cost: { amount: 1000, note: 'About; nominal fees like public universities. Not verified.', estimate: true } },
+      cost: { amount: 1000, note: 'About; assumed nominal like public universities; no official Al-Azhar fee schedule found. Not verified.', estimate: true } },
   ],
   transfers: [
     { from: 'eg-bac12', to: 'eg-ba', label: 'Baccalaureate → university', desc: 'The Baccalaureate gives access to university faculties matching the chosen track, through Tansiq.' },
@@ -199,7 +199,7 @@ export default {
   ],
   sources: [
     { title: 'Human Rights Watch — Egypt: Declining funding undermines education (Jan 2025)', url: 'https://www.hrw.org/news/2025/01/27/egypt-declining-funding-undermines-education' },
-    { title: 'Wikipedia — Education in Egypt (structure, fees, universities)', url: 'https://en.wikipedia.org/wiki/Education_in_Egypt' },
+    { title: 'Al-Dostour — National (ahliya) university fees, based on 2025/26 official fees (July 2026, Arabic)', url: 'https://www.dostor.org/5646279' },
     { title: 'Constitute Project — Constitution of Egypt 2014 (Art. 19)', url: 'https://www.constituteproject.org/constitution/Egypt_2014' },
     { title: 'Ministry of Education and Technical Education, Egypt', url: 'https://moe.gov.eg/' },
     { title: 'Ministry of Higher Education and Scientific Research, Egypt', url: 'https://mohesr.gov.eg/' },
@@ -210,5 +210,6 @@ export default {
     { title: 'UNESCO UIS — Egypt', url: 'https://uis.unesco.org/en/country/eg' },
     { title: 'Ahram Online — Thanaweya Amma to remain in place, baccalaureate system deemed optional (2025)', url: 'https://english.ahram.org.eg/NewsContent/1/2/549292/Egypt/Society/Thanaweya-Amma-to-remain-in-place%2C-baccalaureate-s.aspx' },
     { title: 'Ministry of Education Egypt — House of Representatives approves Egyptian Baccalaureate', url: 'https://moe.gov.eg/en/what-s-on/news/house-of-rep-2' },
+    { title: 'Nuffic — Education system Egypt: primary and secondary education (incl. Al-Azhar)', url: 'https://www.nuffic.nl/en/node/271' },
   ],
 };

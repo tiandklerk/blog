@@ -71,7 +71,7 @@ export default {
       desc: 'Small and middle class. Fees at public kindergartens are set by local governments and ' +
         'differ widely between cities and the countryside; private kindergartens (40% of children) ' +
         'can cost much more.',
-    },
+      cost: { amount: 6000, note: 'Example: Nanjing city-quality public kindergarten, up to ¥600/month (¥400–900 by grade), about 10 months. Meals extra.', src: 6 } },
     { id: 'cn-k3', line: 'early', name: 'Big class', local: '大班', ages: [5, 6], isced: 0,
       desc: 'Final kindergarten year, preparing for primary school. From the autumn 2025 semester the ' +
         'state waives the care-and-education fee (保育教育费) for this year at public kindergartens, ' +
@@ -111,9 +111,11 @@ export default {
     { id: 'cn-g1', line: 'gaozhong', name: 'Gāo yī', local: '高一', ages: [15, 16], isced: 3,
       desc: 'Senior high year 1. Under the "new gaokao" (3+1+2 in most provinces) students choose ' +
         'physics or history plus two more electives at the end of the year.',
-      events: ['Subject choice for the gaokao (end of year)'] },
+      events: ['Subject choice for the gaokao (end of year)'],
+      cost: { amount: 1300, note: 'Example: Nanjing public high schools ¥500–850 per semester (¥1,000–1,700/yr) by school rank. Set by each province or city.', src: 6 } },
     { id: 'cn-g2', line: 'gaozhong', name: 'Gāo èr', local: '高二', ages: [16, 17], isced: 3,
-      desc: 'Academic proficiency tests (学业水平考试) in each subject are needed to graduate.' },
+      desc: 'Academic proficiency tests (学业水平考试) in each subject are needed to graduate.',
+      cost: { amount: 1300, note: 'Example: Nanjing public high schools, ¥1,000–1,700 a year by school rank.', src: 6 } },
     { id: 'cn-g3', line: 'gaozhong', name: 'Gāo sān', local: '高三', ages: [17, 18], isced: 3,
       desc: 'A year of revision for the gaokao (普通高等学校招生全国统一考试), held from 7 June for 2–4 ' +
         'days depending on the province. Students then apply to universities with their score ' +
@@ -121,7 +123,8 @@ export default {
         'score can mean different chances in different provinces. 12.9 million people registered for ' +
         'the 2026 gaokao.',
       exam: 'Gaokao (高考)',
-      events: ['Gaokao: from 7 June (2026: 12.9 million candidates)', 'Scores released late June', 'Applications (志愿填报) late June – July', 'Admission letters July–August'] },
+      events: ['Gaokao: from 7 June (2026: 12.9 million candidates)', 'Scores released late June', 'Applications (志愿填报) late June – July', 'Admission letters July–August'],
+      cost: { amount: 1300, note: 'Example: Nanjing public high schools, ¥1,000–1,700 a year by school rank.', src: 6 } },
     // University
     { id: 'cn-ba', line: 'daxue', name: 'Bachelor', local: '本科', ages: [18, 22], isced: 6,
       desc: 'Four-year bachelor (5 for medicine). Most students live in campus dormitories and start ' +
@@ -136,12 +139,14 @@ export default {
         'national postgraduate entrance exam (考研) held in late December, followed by interviews in ' +
         'spring. In 2025 there were about 3.5 million master students.',
       exam: 'Master\'s degree (硕士)',
-      events: ['National postgraduate exam: late December'] },
+      events: ['National postgraduate exam: late December'],
+      cost: { amount: 8000, note: 'Academic master at a public university (national cap since 2014). Example: Sun Yat-sen University 2026; professional masters ¥8,000–35,000.', src: 5 } },
     { id: 'cn-phd', line: 'daxue', name: 'Doctorate', local: '博士研究生', ages: [25, 29], isced: 8,
       desc: 'Doctorate, usually 3–4 years but often longer; entry by application and assessment ' +
         '(申请-考核). About 750,000 doctoral students in 2025. Doctoral students receive a national ' +
         'stipend.',
-      exam: 'Doctorate (博士)' },
+      exam: 'Doctorate (博士)',
+      cost: { amount: 10000, note: 'Academic doctorate (national cap since 2014). Example: Sun Yat-sen University 2026; offset by national stipend.', src: 5 } },
     // Secondary vocational
     { id: 'cn-v1', line: 'zhongzhi', name: 'Year 1', local: '中职一年级', ages: [15, 16], isced: 3,
       desc: 'First year of secondary vocational school, combining general subjects with a trade ' +
@@ -162,11 +167,13 @@ export default {
       desc: 'Three-year higher vocational diploma at one of 1,554 colleges (2025), with 17.7 million ' +
         'students — almost as many as in regular bachelor programmes. Entered by gaokao score, the ' +
         'vocational gaokao or separate tests in spring.',
-      exam: 'Zhuanke diploma (专科)' },
+      exam: 'Zhuanke diploma (专科)',
+      cost: { amount: 7500, note: 'Example: Shanghai Electronic Information Vocational College 2026, most programmes. Set by province; often lower inland.', src: 7 } },
     { id: 'cn-zsb', line: 'gaozhi', name: 'Top-up', local: '专升本', ages: [21, 23], isced: 6,
       desc: 'Graduates can "upgrade" to a bachelor (专升本) through a provincial exam, studying 2 more ' +
         'years at a university or vocational university. About 0.9 million made this step in 2025.',
-      exam: 'Bachelor\'s degree' },
+      exam: 'Bachelor\'s degree',
+      cost: { amount: 6500, note: 'Example: Shanghai Normal University 2026 top-up, humanities (PE ¥7,000, arts ¥13,000).', src: 8 } },
   ],
   transfers: [
     { from: 'cn-g3', to: 'cn-hv', label: 'Gaokao → higher vocational',
@@ -184,6 +191,9 @@ export default {
     { title: 'Xi\'an Jiaotong University — 2026年本科招生章程 (undergraduate admissions charter, fees)', url: 'http://zs.xjtu.edu.cn/info/1656/7010.htm' },
     { title: 'State Council — 教育发展“十五五”规划 (education development plan 2026–2030)', url: 'http://www.moe.gov.cn/jyb_xxgk/moe_1777/moe_1778/202606/t20260629_1442045.html' },
     { title: 'Ministry of Education — 2026 gaokao: 12.9 million registered', url: 'http://www.moe.gov.cn/jyb_xwfb/gzdt_gzdt/moe_1485/202606/t20260607_1439068.html' },
-    { title: 'Wikipedia — Gaokao (exam dates and format)', url: 'https://en.wikipedia.org/wiki/Gaokao' },
+    { title: 'Sun Yat-sen University — 2026学年中山大学教育收费公示表 (fee schedule incl. postgraduate tuition)', url: 'https://xxgk.sysu.edu.cn/sites/default/files/2026-08/2026%E5%AD%A6%E5%B9%B4%E4%B8%AD%E5%B1%B1%E5%A4%A7%E5%AD%A6%E6%95%99%E8%82%B2%E6%94%B6%E8%B4%B9%E5%85%AC%E7%A4%BA%E8%A1%A8.pdf' },
+    { title: 'Nanjing Education Bureau / DRC — 教育收费公示表 2025 (kindergarten and senior high fees)', url: 'https://edu.nanjing.gov.cn/njsjyj/202502/P020250208649616764309.pdf' },
+    { title: 'Shanghai Municipal Education Commission — 上海电子信息职业技术学院 2026 admissions charter (fees)', url: 'https://edu.sh.gov.cn/edu-assets-20200601/files/jyzt_sxs26970d13f0edbd47tb5/%E4%B8%8A%E6%B5%B7%E7%94%B5%E5%AD%90%E4%BF%A1%E6%81%AF%E8%81%8C%E4%B8%9A%E6%8A%80%E6%9C%AF%E5%AD%A6%E9%99%A2.pdf' },
+    { title: 'Shanghai Municipal Education Commission — 上海师范大学 2026年专升本招生章程 (fees)', url: 'https://edu.sh.gov.cn/edu-assets-20200601/files/jyzt_2026zsbzs41a52f59d60dd70r86/%E4%B8%8A%E6%B5%B7%E5%B8%88%E8%8C%83%E5%A4%A7%E5%AD%A62026%E5%B9%B4%E4%B8%93%E5%8D%87%E6%9C%AC%E6%8B%9B%E7%94%9F%E7%AB%A0%E7%A8%8B.pdf' },
   ],
 };

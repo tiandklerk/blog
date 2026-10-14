@@ -111,7 +111,7 @@ export default {
         'an admission score out of 14.',
       exam: 'Título de Bachiller + PAU',
       events: ['PAU (early June)', 'Extraordinary PAU (late June–July)', 'University pre-enrolment (June–July)'],
-      cost: { amount: 0, note: 'Bachillerato free; the PAU carries a registration fee set by each region (not shown), reduced for large families.', src: 3 } },
+      cost: { amount: 78, note: 'Bachillerato free; PAU registration fee, e.g. €78.20 in the Valencian Community (2026), halved for large families. Set by each region.', src: 8 } },
     { id: 'es-gr', line: 'uni', name: 'Grado', local: 'Grado universitario (4 años)', ages: [18, 22], isced: 6,
       desc: 'Usually 4 years (240 ECTS). Popular degrees (medicine, double degrees) have high ' +
         'cut-off marks. Public price per credit varies by region and field; repeated credits ' +
@@ -128,7 +128,7 @@ export default {
       desc: 'About 3 years full-time (up to 5 part-time), ending with a thesis defence. Many ' +
         'doctoral students hold 4-year FPU or FPI contracts.',
       exam: 'Doctor/a',
-      cost: { amount: 230, note: 'Annual supervision fee of €60 (Andalusia) to €401 (Catalonia) in 2024/25; midpoint shown.', src: 2 } },
+      cost: { amount: 350, note: 'UNED 2026/27: €335.13 tutela académica + €15.15 secretariat fee a year. Regions range from €60 (Andalusia) to €401 (Catalonia).', src: 9 } },
     { id: 'es-gm', line: 'gm', name: 'Grado Medio', local: 'Ciclo formativo de Grado Medio', ages: [16, 18], isced: 3,
       desc: 'Two years (about 2,000 hours) in one of 26 professional families, with in-company ' +
         'training. Leads to the título de Técnico and direct access to Grado Superior.',
@@ -139,7 +139,7 @@ export default {
         'Graduates can enter university grados without the PAU (only the optional subject exams ' +
         'to raise their score), with recognition of credits.',
       exam: 'Técnico Superior',
-      cost: { amount: 0, note: 'Free in public centres in most regions; Madrid and Catalonia have charged fees (Eurydice).', src: 5 } },
+      cost: { amount: 0, note: 'Free in public centres in most regions; Madrid (€400 a year in 2023, with merit discounts) and Catalonia have charged fees.', src: 10 } },
     { id: 'es-gb', line: 'gb', name: 'Grado Básico', local: 'Ciclo formativo de Grado Básico', ages: [15, 17], isced: 3,
       desc: 'Practical training in a trade (e.g. electricity, hospitality, IT services) plus ' +
         'core subjects, with small groups and tutoring.',
@@ -161,5 +161,8 @@ export default {
     { title: 'Eurydice — Spain: national student fee and support systems', url: 'https://eurydice.eacea.ec.europa.eu/countries/spain' },
     { title: 'BOE — Ley Orgánica 3/2020 (LOMLOE)', url: 'https://www.boe.es/eli/es/lo/2020/12/29/3' },
     { title: 'BOE — Ley Orgánica 3/2022 de ordenación e integración de la FP', url: 'https://www.boe.es/eli/es/lo/2022/03/31/3' },
+    { title: 'IES Escultor Badia (GVA) — Instrucciones PAU 2026: tasas de inscripción (UPV)', url: 'https://portal.edu.gva.es/iesescultorbadia/wp-content/uploads/sites/1040/2026/05/Instrucciones-PAU-2026.pdf' },
+    { title: 'UNED — Precios de doctorado 2026-27 (Orden CNU/573/2026)', url: 'https://www.uned.es/universidad/inicio/dam/jcr:ee8455a0-ae17-4098-b44e-2e7e302ec74c/Folleto_precios_doctorado_2026-27.pdf' },
+    { title: 'Comunidad de Madrid — Bonificación de precios públicos de FP de Grado Superior (21 Jun 2023)', url: 'https://www.comunidad.madrid/node/66430' },
   ],
 };

@@ -125,10 +125,12 @@ export default {
     { id: 'ar-mae', line: 'uni', name: 'Maestría', ages: [23, 25], isced: 7,
       desc: 'Master\'s degree (about 2 years), plus shorter especializaciones. Postgraduate ' +
         'programmes usually charge fees, also at public universities.',
-      exam: 'Magíster' },
+      exam: 'Magíster',
+      cost: { amount: 948000, note: 'Example: UNC Ciencias Sociales from Jul 2026, matrícula + 11 monthly cuotas of $79,000. Fees vary widely by faculty.', src: 12 } },
     { id: 'ar-doc', line: 'uni', name: 'Doctorado', ages: [25, 30], isced: 8,
       desc: 'Doctorate of about 5 years; many doctoral students hold CONICET scholarships.',
-      exam: 'Doctor' },
+      exam: 'Doctor',
+      cost: { amount: 1098000, note: 'Example: UNC Ciencias Sociales from Jul 2026, $91,500 a month (matrícula + 33 cuotas). Some science doctorates charge little or nothing.', src: 12 } },
     { id: 'ar-prof', line: 'isfd', name: 'Profesorado', local: 'Instituto Superior de Formación Docente', ages: [18, 22], isced: 6,
       desc: 'Four-year teacher-training degree at a provincial institute. Graduates can continue to ' +
         'university licenciaturas through articulation programmes (ciclos de complementación).',
@@ -165,5 +167,6 @@ export default {
     { title: 'Plan FinEs — terminalidad educativa', url: 'https://www.argentina.gob.ar/educacion/fines' },
     { title: 'INET — Instituto Nacional de Educación Tecnológica', url: 'https://www.inet.edu.ar/' },
     { title: 'CONICET — becas doctorales', url: 'https://www.conicet.gov.ar/' },
+    { title: 'Universidad Nacional de Córdoba, Fac. de Ciencias Sociales — RD-2026-314: aranceles de posgrado 2º semestre 2026', url: 'https://sociales.unc.edu.ar/sites/default/files/rd-2026-314_aranceles_de_posgrado_2do_semestre_2026.pdf' },
   ],
 };

@@ -16,7 +16,7 @@ export default {
     'selection between schools by ability; entry to higher education runs on CAO points from the ' +
     'best six Leaving Cert subjects. School-leavers go to universities and technological ' +
     'universities, Post-Leaving Certificate (PLC) courses in further education, or apprenticeships. ' +
-    'EU undergraduates pay no tuition but a €2,500 student contribution.',
+    'EU undergraduates pay no tuition but a student contribution (€2,350 after Budget 2027).',
   ageNote:
     'Children can start Junior Infants from age 4 (schools set their own minimum, usually 4 by ' +
     'September); most start at 4–5. Ages are typical: taking Transition Year adds a year, so many ' +
@@ -78,8 +78,8 @@ export default {
     { id: 'ie-cc', line: 'early', name: 'Childcare', local: 'Crèche / childminder', ages: [0, 3], isced: 0,
       desc: 'Full-time childcare is mostly private. The NCS universal subsidy applies to every child ' +
         'under 15 in registered care, with extra income-assessed subsidies; most providers are in Core ' +
-        'Funding, which freezes fees.',
-      cost: { amount: 4500, note: 'About: full-time fee (~€190/week) less the NCS universal subsidy; income-assessed NCS lowers it further.', estimate: true } },
+        'Funding, which freezes fees. Budget 2027 (Oct 2026) raises NCS subsidies and cuts the monthly fee cap from €735 to €550 (children up to senior infants) from September 2027.',
+      cost: { amount: 4700, note: 'About: avg full-day fee €186.84/week (2020/21, frozen under Core Funding) less universal NCS €2.14/h × 45 h.', estimate: true } },
     { id: 'ie-ecce', line: 'early', name: 'ECCE', local: 'Early Childhood Care and Education scheme (free preschool)', ages: [3, 4], isced: 0,
       desc: 'Two free preschool years from age 2 years 8 months until school entry: 3 hours a day, ' +
         '5 days a week, 38 weeks a year. Most children use both years before Junior Infants.',
@@ -140,9 +140,10 @@ export default {
     { id: 'ie-ba', line: 'uni', name: 'Bachelor', ages: [18, 22], isced: 6,
       desc: 'Honours bachelor\'s (NFQ level 8) of 3–4 years, or an ordinary bachelor\'s (level 7) of ' +
         '3 years, mainly at TUs. The student contribution was permanently reduced from €3,000 to €2,500 ' +
-        'in Budget 2026 (applying from 2025/26), after several one-off cuts.',
+        'in Budget 2026 (applying from 2025/26), after several one-off cuts. Budget 2027 (6 Oct 2026) ' +
+        'cut it permanently by another €150, to €2,350, from January 2027 with refunds for those who paid.',
       exam: 'Bachelor\'s degree (NFQ 7/8)',
-      cost: { amount: 2500, note: 'Student contribution for EU students; tuition free (Free Fees Initiative). SUSI covers it up to €120,000 family income.', src: 1 } },
+      cost: { amount: 2350, note: 'Student contribution 2026/27 after the Budget 2027 €150 cut; tuition free (Free Fees Initiative). SUSI covers it for lower incomes.', src: 14 } },
     { id: 'ie-ma', line: 'uni', name: 'Master\'s', ages: [22, 23], isced: 7,
       desc: 'Taught master\'s (NFQ 9), usually one year. No Free Fees Initiative: students pay full ' +
         'fees, with a SUSI postgraduate fee grant (€4,500 from 2026) for low incomes.',
@@ -156,7 +157,7 @@ export default {
     { id: 'ie-hc', line: 'hc', name: 'Higher Cert', local: 'Higher Certificate (NFQ 6)', ages: [18, 20], isced: 5,
       desc: 'Two-year Higher Certificate at a technological university or college, entered through the CAO with lower points requirements.',
       exam: 'Higher Certificate (NFQ 6)',
-      cost: { amount: 2500, note: 'Same €2,500 student contribution as degree courses.', src: 1 } },
+      cost: { amount: 2350, note: 'Same student contribution as degree courses (€2,350 after the Budget 2027 cut).', src: 14 } },
     // LCA
     { id: 'ie-lca1', line: 'lca', name: 'LCA Year 1', ages: [16, 17], isced: 3,
       desc: 'Modules in vocational preparation, general education and specialisms, with work experience. Credits build up across four sessions.',
@@ -209,7 +210,10 @@ export default {
     { title: 'Higher Education Authority', url: 'https://hea.ie/' },
     { title: 'Citizens Information — Post Leaving Certificate courses', url: 'https://www.citizensinformation.ie/en/education/vocational-education-and-training/post-leaving-certificate-courses/' },
     { title: 'Citizens Information — National Childcare Scheme', url: 'https://www.citizensinformation.ie/en/education/pre-school-education-and-childcare/national-childcare-scheme/' },
-    { title: 'Wikipedia — Leaving Certificate (Ireland)', url: 'https://en.wikipedia.org/wiki/Leaving_Certificate_(Ireland)' },
+    { title: 'Eurydice — Ireland: assessment in upper secondary education (Leaving Certificate)', url: 'https://eurydice.eacea.ec.europa.eu/national-education-systems/ireland/assessment-upper-secondary-education' },
     { title: 'Eurydice — Ireland: overview', url: 'https://eurydice.eacea.ec.europa.eu/eurypedia/ireland/overview' },
+    { title: 'Houses of the Oireachtas — Parliamentary question on childcare fees (15 May 2024; average full-day fee 2020/21)', url: 'https://www.oireachtas.ie/en/debates/question/2024-05-15/91' },
+    { title: 'Irish Times — Student contribution fees permanently cut by €150 in Budget 2027 (6 Oct 2026)', url: 'https://www.irishtimes.com/your-money/2026/10/06/students-set-for-lower-fees-as-budget-brings-increase-in-education-spending/' },
+    { title: 'Irish Times — Budget 2027 main points (childcare subsidy and fee cap)', url: 'https://www.irishtimes.com/your-money/2026/10/06/budget-ireland-2027-main-points/' },
   ],
 };

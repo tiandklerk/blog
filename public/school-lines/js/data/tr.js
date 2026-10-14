@@ -168,8 +168,8 @@ export default {
       cost: { amount: 0, note: 'Free for daytime programmes at state universities; evening programmes charge fees.' } },
     // MESEM
     { id: 'tr-mesem', line: 'mesem', name: 'Çırak / Kalfa', local: 'Çıraklık eğitimi (MESEM)', ages: [14, 18], isced: 3,
-      desc: 'Apprenticeship: four days at a workplace and one day at the centre. Apprentices are paid at ' +
-        'least about 30% of the minimum wage, partly reimbursed by the state. Ends with the journeyman ' +
+      desc: 'Apprenticeship: four days at a workplace and one day at the centre. Apprentices in grades 9–11 are ' +
+        'paid at least 30% of the minimum wage and journeymen in grade 12 at least half, partly reimbursed by the state. Ends with the journeyman ' +
         'certificate (kalfalık) and, after further training, the master certificate (ustalık), which ' +
         'allows opening a business. Diploma courses can give a high-school diploma.',
       exam: 'Kalfalık / ustalık belgesi',
@@ -204,6 +204,7 @@ export default {
     { title: 'Resmî Gazete — Law 6287 (11 April 2012), 4+4+4', url: 'https://www.resmigazete.gov.tr/eskiler/2012/04/20120411-8.htm' },
     { title: 'ÖSYM — 2026-YKS application and results announcements', url: 'https://www.osym.gov.tr/SinavGrubu/Index/2' },
     { title: 'Council of Higher Education (YÖK)', url: 'https://www.yok.gov.tr/' },
-    { title: 'Wikipedia (tr) — 4+4+4 eğitim sistemi (school-entry month rules)', url: 'https://tr.wikipedia.org/wiki/4%2B4%2B4_e%C4%9Fitim_sistemi' },
+    { title: 'Memurlar.net — Okul Öncesi Eğitim ve İlköğretim Kurumları Yönetmeliği amendment, art. 11: 69 / 66–68 months (10 Jul 2019)', url: 'https://www.memurlar.net/haber/841153/' },
+    { title: 'MEB (Espiye MTAL) — Mesleki eğitim merkezi (MESEM) nedir? (apprentice pay as share of minimum wage)', url: 'https://espiye75yilcpl.meb.k12.tr/meb_iys_dosyalar/28/05/354198/dosyalar/2025_01/10104535_mesemnedirweb.pdf' },
   ],
 };

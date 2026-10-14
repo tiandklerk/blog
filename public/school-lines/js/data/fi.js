@@ -72,7 +72,7 @@ export default {
       cost: { amount: 0, note: 'Free, including books, materials and a daily school meal', src: 0 } },
     { id: 'fi-g3', line: 'basic', name: 'Grade 3', ages: [9, 10], isced: 1, desc: 'Class teacher.',
       cost: { amount: 0, note: 'Free, including books, materials and a daily school meal', src: 0 } },
-    { id: 'fi-g4', line: 'basic', name: 'Grade 4', ages: [10, 11], isced: 1, desc: 'Numerical grades (4–10) may be introduced.',
+    { id: 'fi-g4', line: 'basic', name: 'Grade 4', ages: [10, 11], isced: 1, desc: 'Numerical grades (4–10) start on the year-end certificate in all schools since the 2020 assessment reform; teachers may add verbal feedback.',
       cost: { amount: 0, note: 'Free, including books, materials and a daily school meal', src: 0 } },
     { id: 'fi-g5', line: 'basic', name: 'Grade 5', ages: [11, 12], isced: 1, desc: 'Second-language options.',
       cost: { amount: 0, note: 'Free, including books, materials and a daily school meal', src: 0 } },
@@ -133,12 +133,13 @@ export default {
   sources: [
     { title: 'Finnish National Agency for Education (OPH) — Finnish education system', url: 'https://www.oph.fi/en/education-system' },
     { title: 'Ministry of Education and Culture — Extended compulsory education', url: 'https://okm.fi/en/extension-of-compulsory-education' },
-    { title: 'OPH — Preparatory education for an upper secondary qualification (TUVA)', url: 'https://www.oph.fi/en/education-and-qualifications/preparatory-education-upper-secondary-qualification-tuva' },
+    { title: 'OPH — Mitä on tutkintokoulutukseen valmentava koulutus (TUVA)?', url: 'https://www.oph.fi/fi/koulutus-ja-tutkinnot/mita-tutkintokoulutukseen-valmentava-koulutus-tuva' },
     { title: 'Matriculation Examination Board (YTL)', url: 'https://www.ylioppilastutkinto.fi/en' },
     { title: 'Eurydice — Finland overview', url: 'https://eurydice.eacea.ec.europa.eu/national-education-systems/finland/overview' },
     { title: 'City of Helsinki — Early childhood education fee (from 1 August 2026)', url: 'https://www.hel.fi/en/childhood-and-education/early-childhood-education/early-childhood-education-fee' },
     { title: 'Kela — Student healthcare fee for higher education students', url: 'https://www.kela.fi/student-healthcare-fee-higher-education' },
     { title: 'HYY (University of Helsinki student union) — Membership fee 2026–2027', url: 'https://hyy.fi/en/members/membership/' },
     { title: 'Statistics Finland — Transition to further studies after 9th grade (table 13rz)', url: 'https://pxdata.stat.fi/PxWeb/pxweb/en/StatFin/StatFin__khak/13rz.px/' },
+    { title: 'OPH — Opetushallitus yhdenmukaistaa arviointia peruskouluissa (numerical grades from grade 4, 2020)', url: 'https://www.oph.fi/fi/uutiset/2020/opetushallitus-yhdenmukaistaa-arviointia-peruskouluissa-tavoitteena-oppilaiden' },
   ],
 };

@@ -79,7 +79,8 @@ export default {
       cost: { amount: 0, note: 'Fees are covered up to 1,500 zł/month by the state benefit, so most municipal places cost parents only meals.', src: 4 } },
     { id: 'pl-przed', line: 'przed', name: 'Przedszkole', local: 'Wychowanie przedszkolne (3–5 lat)', ages: [3, 6], isced: 0,
       desc: 'Five hours a day are free in public preschools; extra hours cost at most about 1.4 ' +
-        'zł each (1.44 zł from September 2024, indexed yearly).',
+        'zł each (1.44 zł from September 2024; re-indexed only after cumulative inflation exceeds 5%).' +
+        ' Children aged 6 pay no fees for extra hours.',
       cost: { amount: 0, note: '5 hours a day free; extra hours about 1.4 zł/hour, plus meals.', src: 5 } },
     { id: 'pl-zero', line: 'przed', name: 'Zerówka', local: 'Roczne przygotowanie przedszkolne', ages: [6, 7], isced: 0,
       desc: 'The compulsory preschool year at age 6, in a preschool or a "class 0" in a primary ' +
@@ -157,9 +158,10 @@ export default {
         'Ends with a vocational exam for one qualification.',
       exam: 'Świadectwo + dyplom zawodowy',
       cost: { amount: 0, note: 'Free in public schools; young workers get a training wage.' } },
-    { id: 'pl-bs2', line: 'bs', name: 'II stopnia', local: 'Branżowa szkoła II stopnia', ages: [18, 20], isced: 4,
+    { id: 'pl-bs2', line: 'bs', name: 'II stopnia', local: 'Branżowa szkoła II stopnia', ages: [18, 20], isced: 3,
       desc: 'Two years, often part-time, adding a second qualification to reach technician level. ' +
-        'Graduates can take the matura (vocational matura route).',
+        'Graduates can take the matura (vocational matura route). Eurydice classifies it as upper ' +
+        'secondary (ISCED 3).',
       exam: 'Dyplom technika / matura',
       cost: { amount: 0, note: 'Free in public schools.' } },
   ],

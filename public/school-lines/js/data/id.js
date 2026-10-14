@@ -55,7 +55,8 @@ export default {
     { id: 'sma', name: 'SMA / MA', color: '#7A3E9D', lane: -1, from: 'id-smp9',
       desc: 'Sekolah Menengah Atas (general senior secondary) or Madrasah Aliyah, grades 10–12. Grade 10 ' +
         'is common; in grades 11–12 students choose elective subjects (Kurikulum Merdeka) instead of the ' +
-        'old fixed IPA / IPS / Bahasa streams.' },
+        'old fixed IPA / IPS / Bahasa streams. In April 2025 the minister announced plans to ' +
+        'bring the streams back to align with the subject-based TKA.' },
     { id: 'pt', name: 'University', color: '#4B2470', lane: -1, from: 'id-sma12',
       desc: 'Universitas, institut and sekolah tinggi offer academic degrees: Sarjana (S1, usually 4 years, ' +
         '144 credits), Magister (S2) and Doktor (S3), plus professional programmes (profesi) such as ' +
@@ -129,11 +130,11 @@ export default {
     { id: 'id-s2', line: 'pt', name: 'Magister (S2)', ages: [23, 25], isced: 7,
       desc: 'Master\'s degree, usually 2 years. Professional programmes (e.g. medical specialists) run separately.',
       exam: 'Magister (M.Si., M.T., …)',
-      cost: { amount: 9200000, note: 'Postgraduate fees are set per programme and are usually higher than S1; the S1 middle band is shown as a rough lower bound.', estimate: true } },
+      cost: { amount: 26000000, note: 'UGM Magister Ilmu Hukum 2026/27, regular, Rp13 million a semester (single rate, not income-banded); other UGM masters about Rp9–19 million.', src: 12 } },
     { id: 'id-s3', line: 'pt', name: 'Doktor (S3)', ages: [25, 28], isced: 8,
       desc: 'Doctorate, usually 3–4 years. Many lecturers study with LPDP or ministry scholarships.',
       exam: 'Doktor (Dr.)',
-      cost: { amount: 9200000, note: 'Fees are set per programme; the S1 middle band is shown as a rough lower bound. Scholarships (LPDP) are common.', estimate: true } },
+      cost: { amount: 48000000, note: 'UGM Doktor Ilmu Hukum 2026/27, regular, Rp24 million a semester; other doctorates from about Rp13 million. LPDP scholarships common.', src: 12 } },
     // SMK
     { id: 'id-smk', line: 'smk', name: 'SMK 10–12', local: 'Sekolah Menengah Kejuruan / Madrasah Aliyah Kejuruan', ages: [16, 19], isced: 3,
       desc: 'Vocational upper secondary with workshop practice, industry placements (PKL) and competency ' +
@@ -152,7 +153,7 @@ export default {
     { id: 'id-mtr', line: 'vok', name: 'M. Terapan', local: 'Magister Terapan', ages: [23, 25], isced: 7,
       desc: 'Applied master offered by some polytechnics and vocational schools.',
       exam: 'Magister Terapan (M.Tr.)',
-      cost: { amount: 11400000, note: 'Set per programme; the D4 middle band is shown as a rough lower bound.', estimate: true } },
+      cost: { amount: 25000000, note: 'UGM Vocational School applied master (occupational safety and health) 2026/27, regular class, Rp12.5 million a semester.', src: 12 } },
     // Paket C
     { id: 'id-paketc', line: 'paket', name: 'Paket C', local: 'Pendidikan kesetaraan Paket C (PKBM)', ages: [16, 19], isced: 3,
       desc: 'Senior-secondary equivalency for those outside school, including working youth, home-schoolers ' +
@@ -183,5 +184,6 @@ export default {
     { title: 'Nuffic — Education system Indonesia (diploma levels)', url: 'https://www.nuffic.nl/en/education-systems/indonesia' },
     { title: 'Kemendikdasmen — Ministry of Primary and Secondary Education', url: 'https://www.kemendikdasmen.go.id/' },
     { title: 'Mahkamah Konstitusi — Constitutional Court of Indonesia', url: 'https://www.mkri.id/' },
+    { title: 'Universitas Gadjah Mada — Keputusan Rektor 504/UN1.P/KPT/HUKOR/2026: UKT program profesi dan pascasarjana 2026/2027', url: 'https://ppds.fkkmk.ugm.ac.id/wp-content/uploads/sites/95/2026/06/UKT-2026.pdf' },
   ],
 };

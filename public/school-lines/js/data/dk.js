@@ -194,7 +194,7 @@ export default {
     { title: 'Børne- og Undervisningsministeriet — Epx: ikrafttrædelse', url: 'https://uvm.dk/uddannelse-til-unge/gymnasiale-uddannelser/love-og-regler/politiske-aftaler/aftale-om-ny-gymnasieuddannelse/ikrafttraedelse/' },
     { title: 'Efterskoleforeningen — Hvad koster et efterskoleophold?', url: 'https://efterskolerne.dk/for-elever-og-foraeldre/hvad-koster-et-efterskoleophold/' },
     { title: 'Lovguiden — SU-satser for 2026', url: 'https://lovguiden.dk/det-offentlige/su-kontoret/2025-11-11-satser-for-2026' },
-    { title: 'Børne- og Undervisningsministeriet — Folkeskolens nationale overgangstest (information til forældre)', url: 'https://uvm.dk/-/media/filer/uvm/udd/folke/pdf24/aug/240814-information-til-foraeldre-om-folkeskolens-nationale-overgangstest.pdf' },
+    { title: 'Børne- og Undervisningsministeriet — Resultater fra Folkeskolens Nationale Overgangstest 2025/26 (Færdighedstest from 2026/27)', url: 'https://uvm.dk/aktuelt/nyheder/2025/november/251127-resultater-fra-folkeskolens-nationale-overgangstest-20252026-er-nu-offentliggjort/' },
     { title: 'Efterskoleforeningen — efterskolerne.dk (2026/27 intake)', url: 'https://www.efterskolerne.dk/' },
   ],
 };

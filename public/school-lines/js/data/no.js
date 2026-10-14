@@ -173,8 +173,9 @@ export default {
     { title: 'Regjeringen — Søkertall til videregående opplæring 2025/2026 ("Aldri før har flere søkt yrkesfag")', url: 'https://www.regjeringen.no/no/aktuelt/aldri-for-har-flere-sokt-yrkesfag/id3092842/' },
     { title: 'Universitetet i Oslo — Semesteravgift og Kopinor-avgift', url: 'https://www.uio.no/studier/registrering/semesteravgift/' },
     { title: 'Eurydice — Norway overview', url: 'https://eurydice.eacea.ec.europa.eu/eurypedia/norway/overview' },
-    { title: 'Statsforvaltaren i Vestland — Nasjonale prøvar hausten 2026', url: 'https://www.statsforvalteren.no/vestland/barnehage-og-opplaring/grunnskule-og-vidaregaande-opplaring/nasjonale-provar-hausten-2026/' },
+    { title: 'Udir — Datoer for nasjonale prøver (31 Aug – 25 Sep 2026; 5., 8. og 9. trinn)', url: 'https://www.udir.no/eksamen-og-prover/prover/nasjonale-prover/datoer-for-nasjonale-prover2/' },
     { title: 'Regjeringen — Høringsnotat om studieavgift for studenter fra land utenfor EØS og Sveits', url: 'https://www.regjeringen.no/contentassets/d1b4ecc81268477c8496534943e49eb3/horingsnotat-om-endringer-i-universitets-og-hoyskoleloven-studieavgift-advokatutgifter-og-klagesensur.pdf' },
     { title: 'SSB — Foreldrebetaling i barnehagar', url: 'https://www.ssb.no/utdanning/barnehager/statistikk/foreldrebetaling-i-barnehagar/artikler/kraftig-nedgang-i-foreldrebetalinga-i-barnehagar' },
+    { title: 'utdanning.no — Søknadsfrister til videregående opplæring (1 March, incl. læreplass)', url: 'https://utdanning.no/tema/videregaende_opplaering/soknadsfrister_til_videregaende_opplaering' },
   ],
 };

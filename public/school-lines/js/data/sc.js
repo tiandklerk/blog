@@ -33,7 +33,7 @@ export default {
   costNote:
     'State schooling is free. Funded ELC covers 3–5-year-olds (and some 2-year-olds); under-3 childcare is ' +
     'otherwise paid by parents. SAAS pays university and HN tuition fees for Scottish-domiciled students, so ' +
-    'the family pays nothing. Postgraduate fees vary and are not shown.',
+    'the family pays nothing. Postgraduate fees are set by universities (not regulated); SAAS lends up to £7,000 towards a master\'s fee.',
   lines: [
     { id: 'early', name: 'Childcare', color: '#7C8A93', lane: 0,
       desc: 'Nurseries and childminders for under-3s. Mostly paid by parents; eligible 2-year-olds (e.g. ' +
@@ -128,10 +128,12 @@ export default {
     { id: 'sc-pg', line: 'uni', name: 'Master\'s', ages: [22, 23], isced: 7,
       desc: 'One-year taught master\'s (MSc/MLitt, SCQF 11). Unlike undergraduate study, tuition is charged; ' +
         'SAAS offers a tuition loan.',
-      exam: 'Master\'s degree' },
+      exam: 'Master\'s degree',
+      cost: { amount: 11367, note: 'Most common Glasgow 2026/27 UK fee for taught MSc/MA (range about £8,600–£15,000); SAAS loan up to £7,000.', src: 9 } },
     { id: 'sc-phd', line: 'uni', name: 'PhD', ages: [23, 26], isced: 8,
       desc: 'Usually 3–4 years of research, often with a funded studentship. Ends with a thesis and viva.',
-      exam: 'Doctorate (SCQF 12)' },
+      exam: 'Doctorate (SCQF 12)',
+      cost: { amount: 5238, note: 'UKRI minimum home fee 2026/27; usually paid by the studentship for funded PhD students.', src: 10 } },
     // College
     { id: 'sc-nc', line: 'college', name: 'NC', local: 'National Certificate / FE', ages: [16, 17], isced: 3,
       desc: 'Full-time vocational courses at SCQF 4–6 for school leavers, plus Highers at college.',
@@ -182,5 +184,8 @@ export default {
     { title: 'apprenticeships.scot — Foundation, Modern and Graduate Apprenticeships', url: 'https://www.apprenticeships.scot/' },
     { title: 'Education Scotland — Curriculum for Excellence', url: 'https://education.gov.scot/curriculum-for-excellence/' },
     { title: 'Qualifications Scotland (formerly SQA) — exams and results', url: 'https://www.sqa.org.uk/' },
+    { title: 'University of Glasgow — Postgraduate fee table 2026-27', url: 'https://www.gla.ac.uk/postgraduate/feesandfunding/feetable/2026-27/' },
+    { title: 'UKRI — Get a studentship to fund your doctorate (minimum fee and stipend 2026 to 2027)', url: 'https://www.ukri.org/what-we-do/developing-people-and-skills/find-studentships-and-doctoral-training/get-a-studentship-to-fund-your-doctorate/' },
+    { title: 'SPICe Spotlight — Student support and fees part 3: support for higher education students (2026)', url: 'https://spice-spotlight.scot/2026/06/22/student-support-and-fees-part-3-support-for-higher-education-students/' },
   ],
 };

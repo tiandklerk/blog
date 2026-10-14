@@ -157,7 +157,8 @@ export default {
     { id: 'be-phd', line: 'uni', name: 'Doctoraat', ages: [22, 26], isced: 8,
       desc: 'Doctorate, usually 4 years, often as a funded researcher (FWO or university grant). Ends with ' +
         'a public defence of the dissertation.',
-      exam: 'Doctor (PhD)' },
+      exam: 'Doctor (PhD)',
+      cost: { amount: 579, note: 'UGent 2025/26 (EEA): €578.50 at first enrolment, €0 re-enrolment, €578.50 again to defend; similar at other universities.', src: 10 } },
     // Hogeschool
     { id: 'be-pba', line: 'hs', name: 'Prof. bachelor', local: 'Professionele bachelor', ages: [18, 21], isced: 6,
       desc: 'Three-year, practice-oriented bachelor (180 credits) with long work placements, e.g. nursing, ' +
@@ -245,8 +246,9 @@ export default {
     { title: 'Vlaanderen.be — Voorwaarden voor verminderd studiegeld in het hoger onderwijs', url: 'https://www.vlaanderen.be/onderwijs-en-vorming/studietoelage/bedrag/voorwaarden-voor-verminderd-studiegeld-in-het-hoger-onderwijs' },
     { title: 'Eurydice — Belgium (Flemish Community): organisation of secondary education', url: 'https://eurydice.eacea.ec.europa.eu/national-education-systems/belgium-flemish-community/organisation-general-upper-secondary-education' },
     { title: 'Vlaanderen.be — Duaal leren in het secundair onderwijs', url: 'https://www.vlaanderen.be/onderwijs-en-vorming/een-onderwijsinstelling-of-opleiding-kiezen/op-zoek-naar-een-school-of-studierichting-gewoon-secundair-onderwijs/duaal-leren-in-het-secundair-onderwijs' },
-    { title: 'Edulex — Omzendbrief kostenbeheersing basisonderwijs (maximumfactuur)', url: 'https://data-onderwijs.vlaanderen.be/edulex/document/13875' },
+    { title: 'VRT NWS — De maximumfactuur voor het basisonderwijs (bedragen 2025-2026, updated Aug 2025)', url: 'https://www.vrt.be/vrtnws/nl/2024/08/20/de-maximumfactuur-voor-het-basisonderwijs-zo-zit-het-nu-echt-in/' },
     { title: 'Eurydice — Belgium (Flemish Community): overview', url: 'https://eurydice.eacea.ec.europa.eu/national-education-systems/belgium-flemish-community/overview' },
     { title: 'Bruxelles-J — Organisation du 1er degré (tronc commun en S1, FWB)', url: 'https://www.bruxelles-j.be/etudier-se-former/enseignement-secondaire/lorganisation-du-1er-degre/' },
+    { title: 'UGent — Studiegeld doctoraat 2025-2026', url: 'https://www.ugent.be/student/nl/administratie/studiegeld/studiegelddoctoraat-doctoraatsopleiding-predoctoraleopleidingengezamenlijkdoctoraat.htm/studiegelddoctoraat20252026.htm' },
   ],
 };

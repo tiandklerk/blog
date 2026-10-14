@@ -91,7 +91,7 @@ export default {
       share: { pct: 95.9, of: 'of 4-year-olds attend a childcare institution (2024)', src: 0 } },
     { id: 'at-kiga5', line: 'kiga', name: 'Kiga 5–6', local: 'Verpflichtendes Kindergartenjahr', ages: [5, 6], isced: 0,
       desc: 'Compulsory kindergarten year for children who turn 5 by 31 August: at least 20 hours on four ' +
-        'days a week. The school-readiness check (Schuleinschreibung) takes place in the winter before school.',
+        'days a week. A second compulsory year is in the 2025–2029 government programme but not yet law. The school-readiness check (Schuleinschreibung) takes place in the winter before school.',
       events: ['Kindergarten attendance compulsory (since 2009/10)', 'School registration and readiness check (winter)'],
       cost: { amount: 0, note: 'Free for 20 hours a week in the compulsory year.', src: 8 },
       share: { pct: 97.9, of: 'of 5-year-olds attend a childcare institution (2024)', src: 0 } },
@@ -198,7 +198,8 @@ export default {
     { id: 'at-meister', line: 'lehre', name: 'Meister', local: 'Meister- / Werkmeisterprüfung', ages: [21, 23], isced: 5,
       desc: 'Master craftsperson qualification, placed at level 6 of the Austrian qualifications framework ' +
         '(NQR), like a bachelor. It allows running a regulated trade and training apprentices.',
-      exam: 'Meisterprüfung (NQR 6)' },
+      exam: 'Meisterprüfung (NQR 6)',
+      cost: { amount: 0, note: 'Exam fees for 1st and 2nd attempts paid by the federal state since July 2023; optional prep courses (e.g. WIFI) cost extra.', src: 11 } },
     // BMS
     { id: 'at-bms', line: 'bms', name: 'Fachschule', local: 'BMS, 1–4 Jahre', ages: [14, 17], isced: 3,
       desc: 'Vocational school such as a Handelsschule, technical Fachschule or social-care school. Graduates ' +
@@ -237,5 +238,6 @@ export default {
     { title: 'Eurydice — Austria: early childhood education and care', url: 'https://eurydice.eacea.ec.europa.eu/national-education-systems/austria/early-childhood-education-and-care' },
     { title: 'Universität Wien — Höhe des Studien-/ÖH-Beitrags', url: 'https://studieren.univie.ac.at/studieren-und-lernen/finanzielles/studien-/oeh-beitrag/hoehe-des-studien-/oeh-beitrags' },
     { title: 'FHK — Fachhochschulen: Zahlen, Daten, Fakten (September 2026)', url: 'https://fhk.ac.at/presse/zahlen-daten-fakten/' },
+    { title: 'WKO — Prüfungsgebühren Meister- und Befähigungsprüfung (Gebührenbefreiung)', url: 'https://www.wko.at/service/bildung-lehre/pruefungsgebuehren-meister-befaehigungspruefung.html' },
   ],
 };

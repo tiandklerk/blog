@@ -156,7 +156,7 @@ export default {
         'Apprentices register with Skilled Trades Ontario; many trades (electrician, plumber) are ' +
         'compulsory and require a Certificate of Qualification.',
       exam: 'Certificate of Apprenticeship / Qualification',
-      cost: { amount: 0, note: 'Apprentices earn wages; in-school training is mostly publicly funded, with a small classroom fee per level.', src: 6 } },
+      cost: { amount: 400, note: 'About: $10/day classroom fee for 8–12 weeks per level (~$400–600); Ontario covers it for Level 1 from Jan 2026. Apprentices earn wages.', src: 10 } },
   ],
   transfers: [
     { from: 'ca-g11', to: 'ca-app', label: 'OYAP → apprenticeship',
@@ -179,5 +179,6 @@ export default {
     { title: 'Ontario — Go to college or university in Ontario', url: 'https://www.ontario.ca/page/go-college-or-university-ontario' },
     { title: 'SPON — Ontario lifts tuition freeze, unveils OSAP reforms (Feb 2026)', url: 'https://spon.ca/ontario-lifts-tuition-freeze-unveils-osap-reforms-as-it-adds-billions-to-university-and-college-funding/2026/02/12/' },
     { title: 'CMEC — Education in Canada: an overview', url: 'https://www.cmec.ca/299/education-in-canada-an-overview/index.html' },
+    { title: 'Ontario MLITSD — In-Class Enhancement Fund: Level 1 classroom fees ($10/day) covered from 1 Jan 2026', url: 'https://eopg.labour.gov.on.ca/wp-content/uploads/2025/11/appr-tda-in-class-enhancement-fund-classroom-fees-en-1.pdf' },
   ],
 };
