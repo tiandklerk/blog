@@ -44,3 +44,13 @@ else:
 PY
 
 echo "synced School Lines @ $REV -> $DEST ($(find "$DEST" -type f | wc -l) files)"
+
+# The staging dev server (Vite) loses track of files replaced under public/ via
+# rm+copy, and then 404s them. Restart it so the viewer serves the fresh copy.
+# Best-effort and staging-only; a no-op anywhere the service isn't running.
+if command -v systemctl >/dev/null 2>&1; then
+  if XDG_RUNTIME_DIR="${XDG_RUNTIME_DIR:-/run/user/$(id -u)}" \
+       systemctl --user restart blog-staging.service 2>/dev/null; then
+    echo "  restarted staging dev server"
+  fi
+fi
