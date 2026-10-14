@@ -8,25 +8,42 @@
   <link rel="icon" href="favicon.svg" type="image/svg+xml">
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-  <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Overpass:wght@400;600;700;800;900&family=Overpass+Mono:wght@400;600&display=swap">
+  <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=JetBrains+Mono:wght@400;500;700;800&family=Inter:wght@400;500;600;700;800&display=swap">
+  <script>
+    // Same theme preference as tiandeklerk.com; applied before paint to avoid a flash.
+    (() => {
+      let stored = null;
+      try { stored = localStorage.getItem('cw-theme'); } catch {}
+      const dark = stored ? stored === 'dark' : matchMedia('(prefers-color-scheme: dark)').matches;
+      document.documentElement.classList.toggle('dark', dark);
+    })();
+  </script>
   <link rel="stylesheet" href="css/styles.css">
 </head>
 <body>
   <a class="skip" href="#main">Skip to content</a>
-  <div class="wrap">
-    <header class="top">
-      <div class="roundel" aria-hidden="true"><span>SCHOOL</span></div>
-      <div>
-        <h1>School Lines</h1>
-        <p class="lede">School systems drawn as metro lines. Each <b>station</b> is a stage of schooling,
-          placed at the <b>age</b> pupils usually reach it. Branches show the routes pupils can take,
-          and dotted lines show transfers between them. Switch the stations to show fares (fees) or how
-          many people get that far. Pick a country, or compare countries side by side by age.</p>
+  <header class="mast-bar">
+    <div class="mast">
+      <a class="name" href="https://tiandeklerk.com/">Tian de Klerk</a>
+      <div class="right">
+        <nav aria-label="Blog">
+          <a href="https://tiandeklerk.com/">essays</a>
+          <a href="https://tiandeklerk.com/about">about</a>
+        </nav>
+        <button class="theme" id="themeBtn" type="button" aria-label="Switch between light and dark theme">
+          <span class="swatch"></span><span id="themeLabel">dark</span>
+        </button>
       </div>
-      <button class="theme-btn" id="themeBtn" type="button" aria-label="Toggle dark mode" title="Toggle dark mode">
-        <svg viewBox="0 0 24 24" width="20" height="20" aria-hidden="true"><path fill="currentColor" d="M12 3a9 9 0 1 0 9 9 7 7 0 0 1-9-9Z"/></svg>
-      </button>
-    </header>
+    </div>
+  </header>
+  <div class="wrap">
+    <section class="hero">
+      <h1>School lines</h1>
+      <p class="lede">School systems around the world, drawn as metro lines. Each <b>station</b> is a stage of schooling,
+        placed at the <b>age</b> pupils usually reach it. Branches show the routes pupils can take,
+        and dotted lines show transfers between them. Switch the stations to show fares (fees) or how
+        many people get that far. Pick a country, or compare countries side by side by age.</p>
+    </section>
 
     <nav class="tabs" role="tablist" aria-label="View">
       <a class="tab" role="tab" id="tab-explore" href="#/nl">Explore a country</a>

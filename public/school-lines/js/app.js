@@ -1,5 +1,5 @@
 import { countries, byId, ISCED } from './data/index.js';
-import { renderMap, layout, maxAgeOf, isActiveAt, ageRange, x as ageX, PX } from './map.js';
+import { renderMap, layout, maxAgeOf, isActiveAt, ageRange, axisPos, pxPerYear } from './map.js';
 import {
   attainmentOf, reachPct, medianLevel, medianStations, distribution, LEVEL_LABEL,
   hasCost, cumulativeCost, cheapestTo, convert, formatMoney, unitLabel, loadLiveRates, rateInfo,
@@ -32,6 +32,9 @@ const state = {
   selected: null, // { c: countryId, s: stationId }
   focus: null, // { c, line }
   mode: MODES.some((m) => m.id === store.get('mode')) ? store.get('mode') : 'age',
+  // Map orientation: vertical (age runs down the screen) suits phones.
+  orient: ['h', 'v'].includes(store.get('orient')) ? store.get('orient') : matchMedia('(max-width: 700px)').matches ? 'v' : 'h',
+  pickerOpen: !matchMedia('(max-width: 700px)').matches,
   unit: store.get('unit') || 'local',
 };
 
@@ -46,19 +49,17 @@ const unit = () => (state.view === 'compare' && state.unit === 'local' ? 'USD' :
 const money = (amount, c, opts) => formatMoney(convert(amount, c, unit(), countries), opts);
 
 // ---------- theme ----------
+// Shares the "cw-theme" preference with tiandeklerk.com (html.dark is set before paint in index.html).
 const themeBtn = document.getElementById('themeBtn');
-function applyTheme(t) {
-  if (t) document.documentElement.dataset.theme = t;
-  else delete document.documentElement.dataset.theme;
-}
-applyTheme(store.get('theme'));
+const themeLabel = document.getElementById('themeLabel');
+const syncTheme = () => {
+  themeLabel.textContent = document.documentElement.classList.contains('dark') ? 'light' : 'dark';
+};
+syncTheme();
 themeBtn.addEventListener('click', () => {
-  const dark =
-    document.documentElement.dataset.theme === 'dark' ||
-    (!document.documentElement.dataset.theme && matchMedia('(prefers-color-scheme: dark)').matches);
-  const next = dark ? 'light' : 'dark';
-  applyTheme(next);
-  store.set('theme', next);
+  const dark = document.documentElement.classList.toggle('dark');
+  store.set('cw-theme', dark ? 'dark' : 'light');
+  syncTheme();
 });
 
 // ---------- routing ----------
@@ -115,6 +116,7 @@ function mapOptions(c, maxAge) {
     focusLine: state.focus?.c === c.id ? state.focus.line : null,
     labelFor: state.mode === 'age' ? null : (s) => stationValue(c, s),
     medianIds: medianStations(c, L),
+    orient: state.orient,
   };
 }
 
@@ -138,7 +140,9 @@ function activeStations(c, age) {
 
 function countryPicker(mode) {
   const groups = REGIONS.map((r) => [r, countries.filter((c) => c.region === r).sort((a, b) => a.name.localeCompare(b.name))]).filter(([, cs]) => cs.length);
-  return `<div class="picker" role="group" aria-label="${mode === 'compare' ? `Countries to compare (up to ${MAX_COMPARE})` : 'Country'}">${groups
+  const chosen = (mode === 'compare' ? state.ids : [state.id]).map((id) => byId[id]);
+  const summary = `${mode === 'compare' ? 'Countries' : 'Country'}: ${chosen.map((c) => `<span class="flag" aria-hidden="true">${c.flag}</span> ${esc(c.name)}`).join(', ')}`;
+  return `<details class="picker-wrap" id="pickerWrap"${state.pickerOpen ? ' open' : ''}><summary>${summary}<span class="chg">change</span></summary><div class="picker" role="group" aria-label="${mode === 'compare' ? `Countries to compare (up to ${MAX_COMPARE})` : 'Country'}">${groups
     .map(
       ([r, cs]) =>
         `<div class="region"><span class="region-name">${esc(r)}</span><div class="region-list">${cs
@@ -148,7 +152,7 @@ function countryPicker(mode) {
           })
           .join('')}</div></div>`,
     )
-    .join('')}</div>`;
+    .join('')}</div></details>`;
 }
 
 function ageControl(maxAge) {
@@ -181,6 +185,10 @@ function modeControl(cs) {
       (m) => `<button type="button" data-mode="${m.id}" aria-pressed="${state.mode === m.id}" title="${esc(m.hint)}">${esc(m.label)}</button>`,
     ).join('')}</div>
     ${showUnit ? `<label class="unit">Currency <select id="unit">${unitOptions()}</select></label>` : ''}
+    <div class="seg orient" role="group" aria-label="Map orientation">
+      <button type="button" data-orient="h" aria-pressed="${state.orient === 'h'}" title="Age runs left to right">↔ horizontal</button>
+      <button type="button" data-orient="v" aria-pressed="${state.orient === 'v'}" title="Age runs top to bottom (good on phones)">↕ vertical</button>
+    </div>
   </div>
   <p class="modehint">${esc(MODES.find((m) => m.id === state.mode).hint)}.
     ${state.mode === 'total' ? 'Early childcare before compulsory school is left out. “≥” means some stages have no cost data. ' : ''}
@@ -279,8 +287,8 @@ function renderCountry() {
     ${keysHtml}
     ${modeControl([c])}
     ${ageControl(maxAge)}
-    <div class="mapbox" id="mapbox" data-country="${c.id}">${renderMap(c, mapOptions(c, maxAge))}</div>
-    <p class="hint">Scroll or drag sideways to follow the lines to the end. Click a station for details, or the age ruler to move the cursor.</p>
+    <div class="mapbox${state.orient === 'v' ? ' v' : ''}" id="mapbox" data-country="${c.id}">${renderMap(c, mapOptions(c, maxAge))}</div>
+    <p class="hint">${state.orient === 'v' ? 'Scroll down to follow the lines through the ages.' : 'Scroll or drag sideways to follow the lines to the end.'} Tap a station for details, or the age ruler to move the cursor.</p>
     <section class="readout" id="readout">${readoutHtml([c])}</section>
     <section><h3>Fares</h3><div id="fares">${faresTable([c])}</div></section>
     <section class="cols">
@@ -339,8 +347,8 @@ function renderCompare() {
     ${keysHtml}
     ${modeControl(cs)}
     ${ageControl(maxAge)}
-    <div class="mapbox stack" id="mapbox">${stackHtml(cs, maxAge)}</div>
-    <p class="hint">Scroll or drag sideways; country names stay pinned on the left.</p>
+    <div class="mapbox stack${state.orient === 'v' ? ' v' : ''}" id="mapbox">${stackHtml(cs, maxAge)}</div>
+    <p class="hint">${state.orient === 'v' ? 'Countries sit side by side; scroll down through the ages, sideways to see more lines.' : 'Scroll or drag sideways; country names stay pinned on the left.'}</p>
     <section class="readout" id="readout">${readoutHtml(cs)}</section>
     <section>
       <h3>How far adults get</h3>
@@ -424,25 +432,46 @@ function refreshAge() {
 
 /** Re-render everything but keep the map's horizontal scroll position. */
 function rerenderKeepScroll() {
-  const left = document.getElementById('mapbox')?.scrollLeft;
+  const old = document.getElementById('mapbox');
+  const left = old?.scrollLeft;
+  const top = old?.scrollTop;
   const y = window.scrollY;
   if (state.view === 'country') renderCountry();
   else renderCompare();
   const box = document.getElementById('mapbox');
-  if (box && left != null) box.scrollLeft = left;
+  if (box && left != null) {
+    box.scrollLeft = left;
+    box.scrollTop = top;
+  }
   window.scrollTo(0, y);
   if (state.selected && !panel.hidden) openPanel(state.selected.c, state.selected.s);
+}
+
+/** Offset of the first map inside the scroll box (skips sticky labels / headers). */
+function mapOffset(box, cid) {
+  const svg = (cid ? box.querySelector(`[data-country="${cid}"] svg`) : null) || box.querySelector('svg');
+  if (!svg) return { x: 0, y: 0 };
+  const b = box.getBoundingClientRect();
+  const r = svg.getBoundingClientRect();
+  return { x: r.left - b.left + box.scrollLeft, y: r.top - b.top + box.scrollTop };
 }
 
 function scrollToAge(smooth) {
   const box = document.getElementById('mapbox');
   if (!box) return;
-  const labelW = state.view === 'compare' ? box.querySelector('.stack-label')?.offsetWidth || 0 : 0;
-  const cx = ageX(state.age) + PX / 2;
-  const left = box.scrollLeft;
-  const visible = box.clientWidth - labelW;
-  if (!smooth || cx < left + 60 || cx > left + visible - 60) {
-    box.scrollTo({ left: Math.max(0, cx - visible / 2), behavior: smooth ? 'smooth' : 'auto' });
+  const off = mapOffset(box);
+  const behavior = smooth ? 'smooth' : 'auto';
+  const c = axisPos(state.age, state.orient) + pxPerYear(state.orient) / 2;
+  if (state.orient === 'v') {
+    const cy = off.y + c;
+    if (!smooth || cy < box.scrollTop + 60 || cy > box.scrollTop + box.clientHeight - 60)
+      box.scrollTo({ top: Math.max(0, cy - box.clientHeight / 2), behavior });
+  } else {
+    const labelW = off.x;
+    const cx = c;
+    const visible = box.clientWidth - labelW;
+    if (!smooth || cx < box.scrollLeft + 60 || cx > box.scrollLeft + visible - 60)
+      box.scrollTo({ left: Math.max(0, cx - visible / 2), behavior });
   }
 }
 
@@ -483,7 +512,7 @@ function openPanel(cid, sid, { scroll = false } = {}) {
   let fare = '';
   if (hasCost(s)) {
     const local = formatMoney({ value: s.cost.amount, currency: c.currency }, { compact: false });
-    const conv = ['local'].includes(unit()) ? '' : ` <span class="muted">(${esc(money(s.cost.amount, c, { compact: false }))}${unit() === 'GDP' ? ' of GDP per head' : ''})</span>`;
+    const conv = unit() === 'local' || s.cost.amount === 0 ? '' : ` <span class="muted">(${esc(money(s.cost.amount, c, { compact: false }))}${unit() === 'GDP' ? ' of GDP per head' : ''})</span>`;
     const cc = cumulativeCost(c, L, s);
     fare = `<h3>Fare</h3>
       <p class="fare"><b>${esc(local)}</b>${s.cost.amount > 0 ? ' per year' : ''}${conv}${s.cost.src != null ? srcLink(s.cost.src) : ''}</p>
@@ -542,11 +571,16 @@ function closePanel() {
 
 function scrollToStation(cid, sid, smooth = true) {
   const box = document.getElementById('mapbox');
-  const sx = layoutOf(byId[cid]).sx[sid];
+  const sx = layout(byId[cid], state.orient).sx[sid];
   if (!box || sx == null) return;
   const behavior = smooth ? 'smooth' : 'auto';
-  box.scrollTo({ left: Math.max(0, sx - 80), behavior });
-  if (state.view === 'compare') box.querySelector(`.stack-row[data-country="${cid}"]`)?.scrollIntoView({ block: 'nearest', behavior });
+  if (state.orient === 'v') {
+    const off = mapOffset(box, state.view === 'compare' ? cid : null);
+    box.scrollTo({ top: Math.max(0, off.y + sx - 80), left: state.view === 'compare' ? Math.max(0, off.x - 50) : box.scrollLeft, behavior });
+  } else {
+    box.scrollTo({ left: Math.max(0, sx - 80), behavior });
+    if (state.view === 'compare') box.querySelector(`.stack-row[data-country="${cid}"]`)?.scrollIntoView({ block: 'nearest', behavior });
+  }
 }
 
 // ---------- events ----------
@@ -556,6 +590,7 @@ main.addEventListener('click', (e) => {
   if (pick) {
     const id = pick.dataset.pick;
     if (state.view === 'country') {
+      if (matchMedia('(max-width: 700px)').matches) state.pickerOpen = false;
       location.hash = `#/${id}`;
     } else {
       let ids = state.ids.includes(id) ? state.ids.filter((i) => i !== id) : [...state.ids, id];
@@ -563,6 +598,15 @@ main.addEventListener('click', (e) => {
       if (ids.length > MAX_COMPARE) ids = ids.slice(-MAX_COMPARE);
       location.hash = `#/compare/${ids.join(',')}`;
     }
+    return;
+  }
+  const orientBtn = t.closest('[data-orient]');
+  if (orientBtn) {
+    state.orient = orientBtn.dataset.orient;
+    store.set('orient', state.orient);
+    if (state.view === 'country') renderCountry();
+    else renderCompare();
+    if (state.selected && !panel.hidden) openPanel(state.selected.c, state.selected.s);
     return;
   }
   const modeBtn = t.closest('[data-mode]');
@@ -597,6 +641,10 @@ main.addEventListener('click', (e) => {
     return openPanel(cid, xg.dataset.from);
   }
 });
+
+main.addEventListener('toggle', (e) => {
+  if (e.target.id === 'pickerWrap') state.pickerOpen = e.target.open;
+}, true);
 
 main.addEventListener('change', (e) => {
   if (e.target.id === 'unit') {
@@ -637,16 +685,20 @@ let drag = null;
 main.addEventListener('pointerdown', (e) => {
   const box = e.target.closest('#mapbox');
   if (!box || e.pointerType !== 'mouse' || e.button !== 0) return;
-  drag = { box, x: e.clientX, left: box.scrollLeft, moved: false };
+  drag = { box, x: e.clientX, y: e.clientY, left: box.scrollLeft, top: box.scrollTop, moved: false };
 });
 window.addEventListener('pointermove', (e) => {
   if (!drag) return;
   const dx = e.clientX - drag.x;
-  if (Math.abs(dx) > 4) {
+  const dy = e.clientY - drag.y;
+  if (Math.abs(dx) > 4 || Math.abs(dy) > 4) {
     drag.moved = true;
     drag.box.classList.add('dragging');
   }
-  if (drag.moved) drag.box.scrollLeft = drag.left - dx;
+  if (drag.moved) {
+    drag.box.scrollLeft = drag.left - dx;
+    drag.box.scrollTop = drag.top - dy;
+  }
 });
 window.addEventListener('pointerup', () => {
   if (!drag) return;
